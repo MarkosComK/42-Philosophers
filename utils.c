@@ -11,7 +11,17 @@
 /* ************************************************************************** */
 
 #include "philo.h"
+size_t	ft_strlen(char *str)
+{
+	size_t	size;
 
+	size = 0;
+	if (!str)
+		return (-1);
+	while (str[size])
+		size++;
+	return (size);
+}
 int	ft_atoi(char *str)
 {
 	int	result;

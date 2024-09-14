@@ -49,5 +49,6 @@ int	check_args(int ac, char **av);
 int	ft_atoi(char *str);
 int	ft_isnum(char *str);
 void	print_philos(t_philos *philo);
+void	destroy_all(char *str, t_table *table, pthread_mutex_t *forks);
 
 #endif

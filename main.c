@@ -23,7 +23,6 @@ int	main(int ac, char **av)
 	prepare_table(philos, &table, av);
 	init_philos(&table, philos, av);
 	start_meal(&table, philos, av);
-	print_philos(philos);
 	end_meal(&table, philos, av);
 	return (0);
 }
