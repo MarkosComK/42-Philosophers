@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 09:54:23 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/14 11:31:27 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/09/14 11:41:59 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	check_args(int ac, char **av)
 		return(printf(RED"Usage:\n"GREEN"./philo"" 5 500 600 800\n" DEFAULT));
 	if (ft_atoi(av[1]) <= 0 || ft_atoi(av[1]) > MAX_PHILOS)
 		return (printf(RED"Invalid number of philosophers\n"DEFAULT));
-	if (ft_atoi(av[2]) <= 0 || ft_atoi(av[1]) > MAX_PHILOS)
-		return (printf(RED"Invalid number of philosophers\n"DEFAULT));
+	if (ft_atoi(av[2]) <= 0 || ft_isnum(av[2]))
+		return (printf(RED"Invalid time_to_die\n"DEFAULT));
 	return (0);
 }
