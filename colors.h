@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   colors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/14 09:30:56 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/14 09:52:47 by marsoare         ###   ########.fr       */
+/*   Created: 2024/09/14 09:52:07 by marsoare          #+#    #+#             */
+/*   Updated: 2024/09/14 09:52:11 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#ifndef COLORS_H
+# define COLORS_H
 
-int	main(int ac, char **av)
-{
+# define DEFAULT "\033[0;39m"
+# define GRAY "\033[0;90m"
+# define RED "\033[0;91m"
+# define GREEN "\033[0;92m"
+# define YELLOW "\033[0;93m"
+# define BLUE "\033[0;94m"
+# define MAGENTA "\033[0;95m"
+# define CYAN "\033[0;96m"
+# define WHITE "\033[0;97m"
 
-	if (ac < 5)
-		printf(RED "Missing args [%i]\n" DEFAULT, ac);
-	printf("ac: %i\n", ac);
-	while (*av)
-		printf("%s\n", *av++);
-	printf("first commit XD\n");
-}
+#endif
