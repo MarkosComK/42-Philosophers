@@ -17,7 +17,8 @@ void	*routine(void *arg)
 	t_philos *philo;
 
 	philo = (t_philos *)arg;
-	usleep(1);
+	if (philo->id % 2 == 0)
+		usleep(500);
 	pthread_mutex_lock(&((t_table *)arg)->mutex);
 	printf("Hi im philo N: %i\n", philo->id);
 	pthread_mutex_unlock(&((t_table *)arg)->mutex);
