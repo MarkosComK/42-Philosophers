@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 11:15:48 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/14 11:44:18 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/09/14 11:49:04 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	ft_atoi(char *str)
 	result = 0;
 	i = 0;
 	neg = 1;
+	if (!str)
+		return (-1);
 	while (str[i] >= '\t' && str[i] <= '\r' && str[i] == ' ')
 		i++;
 	if (str[i] == '+' || str[i] == '-')
@@ -39,6 +41,8 @@ int	ft_isnum(char *str)
 	int	i;
 
 	i = 0;
+	if (!str)
+		return (-1);
 	while (str[i])
 	{
 		if (str[i] < '0' || str[i++] > '9')
