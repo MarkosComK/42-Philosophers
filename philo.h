@@ -24,6 +24,7 @@ typedef struct s_table t_table;
 
 typedef struct s_philos
 {
+	int			id;
 	pthread_t	thread;
 	size_t	num_philos;
 	unsigned int	forks;
