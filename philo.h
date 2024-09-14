@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 09:31:42 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/14 15:38:57 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/09/14 16:46:12 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,11 @@
 # include "colors.h"
 # include <pthread.h>
 # include <stdio.h>
+# include <unistd.h>
 
 # define MAX_PHILOS 200
+
+typedef struct s_table t_table;
 
 typedef struct s_philos
 {
