@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 09:31:42 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/14 14:33:45 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/09/14 14:47:11 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct s_table
 }				t_table;
 
 void	prepare_table(t_philos *philos, t_table *table, char **av);
-void	philos_input_data(t_philos *philos, char **av);
+void	init_philos(t_table *table, t_philos *philos, char **av);
 void	birth_sophos(t_table *table, t_philos *philos, char **av);
 int	check_args(int ac, char **av);
 //utils.c

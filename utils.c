@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 11:15:48 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/14 14:40:05 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/09/14 14:51:44 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	print_philo(t_philos *philo)
 	i = 0;
 	while (i < philo[0].num_philos)
 	{
-		printf("%zi\n", i);
+		printf("philo: %zi\n", i + 1);
 		printf("philo->num_philos: [% 18zi]\n", philo[i].num_philos);
 		printf("philo->time-die:   [% 18zi]\n", philo[i].time_die);
 		printf("philo->time-eat:   [% 18zi]\n", philo[i].time_eat);

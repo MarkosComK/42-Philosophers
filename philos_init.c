@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 13:55:25 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/14 14:37:00 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/09/14 14:50:57 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,17 @@ void	philos_input_data(t_philos *philos, char **av)
 	philos->time_die = ft_atoi(av[2]);
 	philos->time_eat = ft_atoi(av[3]);
 	philos->time_sleep = ft_atoi(av[4]);
+}
+
+void	init_philos(t_table *table, t_philos *philos, char **av)
+{
+	size_t	i;
+	(void) table;
+
+	i = 0;
+	while (i < (size_t)ft_atoi(av[1]))
+	{
+		philos_input_data(&philos[i], av);
+		i++;
+	}
 }
