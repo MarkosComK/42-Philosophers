@@ -14,8 +14,12 @@
 
 void	*routine(void *arg)
 {
+	t_philos *philo;
+
+	philo = (t_philos *)arg;
+	usleep(1);
 	//pthread_mutex_lock(&((t_table *)arg)->mutex);
-	printf("Hi im philo N: %i\n", *(int *)arg);
+	//printf("Hi im philo N: %i\n", philo->id);
 	//pthread_mutex_unlock(&((t_table *)arg)->mutex);
 	//somehow implement mutexes for forks
 	//eat
@@ -46,9 +50,8 @@ void	start_meal(t_table *table, t_philos *philos, char **av)
 			write(2, "TError\n", 7);
 	while (i < table->philos->num_philos)
 	{
-		printf("creating thread %zi\n", i);
 		if(pthread_create(&table->philos[i].thread, NULL,
-			routine, &i) != 0)
+			routine, &table->philos[i]) != 0)
 			write(2, "TError\n", 7);
 		i++;
 	}
