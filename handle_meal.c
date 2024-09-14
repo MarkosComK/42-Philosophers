@@ -18,9 +18,9 @@ void	*routine(void *arg)
 
 	philo = (t_philos *)arg;
 	usleep(1);
-	//pthread_mutex_lock(&((t_table *)arg)->mutex);
-	//printf("Hi im philo N: %i\n", philo->id);
-	//pthread_mutex_unlock(&((t_table *)arg)->mutex);
+	pthread_mutex_lock(&((t_table *)arg)->mutex);
+	printf("Hi im philo N: %i\n", philo->id);
+	pthread_mutex_unlock(&((t_table *)arg)->mutex);
 	//somehow implement mutexes for forks
 	//eat
 	//sleep
