@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 09:31:42 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/14 14:07:49 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/09/14 14:33:45 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@
 typedef struct s_philos
 {
 	pthread_t	thread;
-	unsigned int	num_philos;
-	unsigned int	time_die;
-	unsigned int	time_eat;
-	unsigned int	time_sleep;
+	size_t	num_philos;
+	size_t	time_die;
+	size_t	time_eat;
+	size_t	time_sleep;
 }				t_philos;
 
 typedef struct s_table

@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 11:15:48 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/14 14:07:39 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/09/14 14:40:05 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,18 @@ int	ft_isnum(char *str)
 
 void	print_philo(t_philos *philo)
 {
-	printf("philo->num_philos: [% 10i]", philo->num_philos);
-	printf("philo->time-die: [% 10i]", philo->time_die);
-	printf("philo->time-eat: [% 10i]", philo->time_eat);
-	printf("philo->time-sleep: [% 10i]", philo->time_sleep);
+	size_t	i;
+
+	i = 0;
+	while (i < philo[0].num_philos)
+	{
+		printf("%zi\n", i);
+		printf("philo->num_philos: [% 18zi]\n", philo[i].num_philos);
+		printf("philo->time-die:   [% 18zi]\n", philo[i].time_die);
+		printf("philo->time-eat:   [% 18zi]\n", philo[i].time_eat);
+		printf("philo->time-sleep: [% 18zi]\n", philo[i].time_sleep);
+		printf("\n");
+		i++;
+	}
+	printf("\n");
 }
