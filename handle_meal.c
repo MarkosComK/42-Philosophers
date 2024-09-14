@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 11:58:02 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/14 17:08:38 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/09/14 20:30:53 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void	*routine(void *arg)
 
 	philo = (t_philos *)arg;
 	if (philo->id % 2 == 0)
-		usleep(500);
-	pthread_mutex_lock(&((t_table *)arg)->mutex);
+		ft_usleep(1);
+	//pthread_mutex_lock(&((t_table *)arg)->mutex);
 	printf("Hi im philo N: %i\n", philo->id);
-	pthread_mutex_unlock(&((t_table *)arg)->mutex);
+	//pthread_mutex_unlock(&((t_table *)arg)->mutex);
 	//somehow implement mutexes for forks
 	//eat
 	//sleep

@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 09:31:42 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/14 16:46:12 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/09/14 20:29:23 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <pthread.h>
 # include <stdio.h>
 # include <unistd.h>
+# include <sys/time.h>
 
 # define MAX_PHILOS 200
 
@@ -50,5 +51,7 @@ int	ft_atoi(char *str);
 int	ft_isnum(char *str);
 void	print_philos(t_philos *philo);
 void	destroy_all(char *str, t_table *table, pthread_mutex_t *forks);
+int	ft_usleep(size_t milliseconds);
+size_t	get_current_time(void);
 
 #endif
