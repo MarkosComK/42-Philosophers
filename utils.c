@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 11:15:48 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/14 15:13:24 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/09/14 15:36:22 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	ft_isnum(char *str)
 	return (0);
 }
 
-void	print_philo(t_philos *philo)
+void	print_philos(t_philos *philo)
 {
 	size_t	i;
 

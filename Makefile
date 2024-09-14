@@ -14,7 +14,7 @@ NAME			=	philo
 CC				=	cc
 RM				=	rm -f
 
-CFLAGS			=	-Wall -Wextra -Werror -fsanitize=address -g
+CFLAGS			=	-Wall -Wextra -Werror -g
 
 .c.o:
 		@$(CC) $(CFLAGS) -c $< -o $@

@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 12:17:40 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/14 12:43:53 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/09/14 15:22:38 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,5 @@ void	prepare_table(t_philos *philos, t_table *table, char **av)
 {
 	(void) av;
 	table->philos = philos;
+	pthread_mutex_init(&table->mutex, NULL);
 }

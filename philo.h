@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 09:31:42 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/14 15:27:38 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/09/14 15:36:28 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_philos
 	size_t	time_die;
 	size_t	time_eat;
 	size_t	time_sleep;
+	unsigned int	fork;
 }				t_philos;
 
 typedef struct s_table
@@ -43,6 +44,6 @@ int	check_args(int ac, char **av);
 //utils.c
 int	ft_atoi(char *str);
 int	ft_isnum(char *str);
-void	print_philo(t_philos *philo);
+void	print_philos(t_philos *philo);
 
 #endif
