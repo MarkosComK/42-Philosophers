@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 09:30:56 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/14 14:47:32 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/09/14 14:53:30 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	main(int ac, char **av)
 		return (1);
 	prepare_table(philos, &table, av);
 	init_philos(&table, philos, av);
-	print_philo(philos);
 	birth_sophos(&table, philos, av);
 	return (0);
 }

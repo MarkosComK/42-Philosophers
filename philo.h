@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 09:31:42 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/14 14:47:11 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/09/14 15:20:33 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ typedef struct s_philos
 
 typedef struct s_table
 {
-	pthread_t	table;
-	t_philos	*philos;
+	pthread_t		table;
+	t_philos		*philos;
+	pthread_mutex_t	mutex;
 }				t_table;
 
 void	prepare_table(t_philos *philos, t_table *table, char **av);

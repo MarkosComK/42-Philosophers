@@ -14,7 +14,7 @@ NAME			=	philo
 CC				=	cc
 RM				=	rm -f
 
-CFLAGS			=	-Wall -Wextra -Werror -g
+CFLAGS			=	-Wall -Wextra -Werror -fsanitize=address -g
 
 .c.o:
 		@$(CC) $(CFLAGS) -c $< -o $@
@@ -23,3 +23,8 @@ all:	$(NAME)
 
 $(NAME): $(OBJECTS) $(HEADER)
 		@$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME)
+
+clean:
+	$(RM) $(OBJECTS)
+
+re: clean all
