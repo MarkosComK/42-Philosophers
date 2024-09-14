@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 11:15:48 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/14 15:36:22 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/09/14 15:38:50 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ void	print_philos(t_philos *philo)
 	while (i < philo[0].num_philos)
 	{
 		printf("philo: %zi\n", i + 1);
-		printf(YELLOW"philo->num_philos:"GREEN"[% 18zi]\n", philo[i].num_philos);
+		printf(YELLOW"philo->num_philos:"GREEN" [% 18zi]\n", philo[i].num_philos);
+		printf(YELLOW"philo->forks:"GREEN"      [% 18d]\n", philo[i].forks);
 		printf(YELLOW"philo->time-die:"GREEN"   [% 18zi]\n", philo[i].time_die);
 		printf(YELLOW"philo->time-eat:"GREEN"   [% 18zi]\n", philo[i].time_eat);
 		printf(YELLOW"philo->time-sleep:"GREEN" [% 18zi]\n", philo[i].time_sleep);
