@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 11:15:48 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/14 11:49:04 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/09/14 14:07:39 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,12 @@ int	ft_isnum(char *str)
 			return (1);
 	}
 	return (0);
+}
+
+void	print_philo(t_philos *philo)
+{
+	printf("philo->num_philos: [% 10i]", philo->num_philos);
+	printf("philo->time-die: [% 10i]", philo->time_die);
+	printf("philo->time-eat: [% 10i]", philo->time_eat);
+	printf("philo->time-sleep: [% 10i]", philo->time_sleep);
 }

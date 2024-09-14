@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   prepare_table.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/14 09:30:56 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/14 14:08:01 by marsoare         ###   ########.fr       */
+/*   Created: 2024/09/14 12:17:40 by marsoare          #+#    #+#             */
+/*   Updated: 2024/09/14 12:43:53 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-#include <stdlib.h>
 
-int	main(int ac, char **av)
+void	prepare_table(t_philos *philos, t_table *table, char **av)
 {
-	t_philos	philos[MAX_PHILOS];
-	t_table		table;
-
-	if (check_args(ac, av))
-		return (1);
-	prepare_table(philos, &table, av);
-	philos_input_data(philos, av);
-	birth_sophos(&table, philos, av);
-	return (0);
+	(void) av;
+	table->philos = philos;
 }

@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 09:31:42 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/14 11:41:06 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/09/14 14:07:49 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,28 @@
 
 # define MAX_PHILOS 200
 
+typedef struct s_philos
+{
+	pthread_t	thread;
+	unsigned int	num_philos;
+	unsigned int	time_die;
+	unsigned int	time_eat;
+	unsigned int	time_sleep;
+}				t_philos;
+
+typedef struct s_table
+{
+	pthread_t	table;
+	t_philos	*philos;
+}				t_table;
+
+void	prepare_table(t_philos *philos, t_table *table, char **av);
+void	philos_input_data(t_philos *philos, char **av);
+void	birth_sophos(t_table *table, t_philos *philos, char **av);
 int	check_args(int ac, char **av);
 //utils.c
 int	ft_atoi(char *str);
 int	ft_isnum(char *str);
+void	print_philo(t_philos *philo);
 
 #endif
