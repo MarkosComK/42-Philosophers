@@ -31,6 +31,7 @@ typedef struct s_philos
 	size_t		time_eat;
 	size_t		time_sleep;
 	int			sleep;
+	int			eat;
 	struct s_table	*table;
 }				t_philos;
 

@@ -40,7 +40,7 @@ void	eat(t_philos *philo)
 		pthread_mutex_lock(&philo->table->mutex);
 		printf(BLUE"%i"GREEN" is eating\n"DEFAULT, philo->id);
 		pthread_mutex_unlock(&philo->table->mutex);
-		while(get_current_time() - philo->table->time < philo->time_eat);
+		ft_usleep(philo->time_eat);
 	}
 }
 
