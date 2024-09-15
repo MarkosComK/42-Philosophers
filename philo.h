@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 09:31:42 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/14 20:29:23 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/09/15 10:49:27 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_table
 	pthread_t		table;
 	t_philos		*philos;
 	pthread_mutex_t	mutex;
+	int				forks;
 }				t_table;
 
 void	prepare_table(t_philos *philos, t_table *table, char **av);
@@ -52,5 +53,7 @@ void	print_philos(t_philos *philo);
 void	destroy_all(char *str, t_table *table, pthread_mutex_t *forks);
 int		ft_usleep(size_t milliseconds);
 size_t	get_current_time(void);
+//actions
+void	eat(t_philos *philos);
 
 #endif

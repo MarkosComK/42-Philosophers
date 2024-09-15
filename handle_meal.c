@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 11:58:02 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/14 20:30:53 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/09/15 10:34:05 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,7 @@ void	*routine(void *arg)
 	philo = (t_philos *)arg;
 	if (philo->id % 2 == 0)
 		ft_usleep(1);
-	printf(YELLOW"Hi im philo N: "GREEN"%i\n"DEFAULT, philo->id);
-	pthread_mutex_lock(&philo->table->mutex);
-	if (philo->table->philos[philo->id].forks == 1 && (size_t)philo->id != philo->num_philos - 1)
-	{
-		printf(RED"Catching the philo %i fork\n"DEFAULT, philo->table->philos[philo->id].id);
-		philo->forks++;
-		philo->table->philos[philo->id].forks --;
-	}
-	pthread_mutex_unlock(&philo->table->mutex);
-	printf(YELLOW"I hold forks:  "GREEN"%i\n"DEFAULT, philo->forks);
-	printf("\n");
+	eat(philo);
 	return (arg);
 }
 
