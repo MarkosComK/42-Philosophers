@@ -19,7 +19,17 @@ void	*routine(void *arg)
 	philo = (t_philos *)arg;
 	if (philo->id % 2 == 0)
 		ft_usleep(1);
-	printf("Hi im philo N: %i\n", philo->id);
+	printf(YELLOW"Hi im philo N: "GREEN"%i\n"DEFAULT, philo->id);
+	pthread_mutex_lock(&philo->table->mutex);
+	if (philo->table->philos[philo->id].forks == 1 && (size_t)philo->id != philo->num_philos - 1)
+	{
+		printf(RED"Catching the philo %i fork\n"DEFAULT, philo->table->philos[philo->id].id);
+		philo->forks++;
+		philo->table->philos[philo->id].forks --;
+	}
+	pthread_mutex_unlock(&philo->table->mutex);
+	printf(YELLOW"I hold forks:  "GREEN"%i\n"DEFAULT, philo->forks);
+	printf("\n");
 	return (arg);
 }
 

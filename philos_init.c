@@ -25,12 +25,12 @@ void	init_philos(t_table *table, t_philos *philos, char **av)
 {
 	size_t	i;
 
-	(void) table;
 	i = 0;
 	while (i < (size_t)ft_atoi(av[1]))
 	{
 		philos[i].id = i + 1;
 		philos_input_data(&philos[i], av);
+		philos[i].table = table;
 		i++;
 	}
 }
