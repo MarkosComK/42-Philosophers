@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 13:55:25 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/15 11:21:11 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/09/15 11:23:46 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,9 @@ void	init_philos(t_table *table, t_philos *philos, char **av)
 	i = 0;
 	while (i < (size_t)ft_atoi(av[1]))
 	{
-		printf("%i\n", table->forks);
 		philos[i].id = i + 1;
 		philos_input_data(&philos[i], av);
 		philos[i].table = table;
-printf("Address of philos[%zu].id: %p\n", i, (void *)&philos[i].id);
-printf("Address of table->forks: %p\n", (void *)&table->forks);
 		i++;
 	}
 }
