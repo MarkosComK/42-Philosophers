@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 11:58:02 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/15 13:29:59 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/09/15 17:58:11 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	*routine(void *arg)
 	if (philo->id % 2 == 0)
 		ft_usleep(1);
 	eat(philo);
+	rivotril(philo);
 	return (arg);
 }
 

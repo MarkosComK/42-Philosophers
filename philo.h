@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 09:31:42 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/15 13:19:29 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/09/15 16:31:26 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_philos
 	size_t		time_die;
 	size_t		time_eat;
 	size_t		time_sleep;
+	int			sleep;
 	struct s_table	*table;
 }				t_philos;
 
@@ -56,5 +57,6 @@ int		ft_usleep(size_t milliseconds);
 size_t	get_current_time(void);
 //actions
 void	eat(t_philos *philos);
+void	rivotril(t_philos *philo);
 
 #endif
