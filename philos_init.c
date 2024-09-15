@@ -24,8 +24,8 @@ void	philos_input_data(t_philos *philos, char **av)
 void	init_philos(t_table *table, t_philos *philos, char **av)
 {
 	size_t	i;
-	(void) table;
 
+	(void) table;
 	i = 0;
 	while (i < (size_t)ft_atoi(av[1]))
 	{
