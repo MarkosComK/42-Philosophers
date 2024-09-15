@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 10:32:22 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/15 11:39:15 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/09/15 13:32:10 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void	eat(t_philos *philo)
 	{
 		philo->forks++;
 		philo->table->forks--;
-		printf("%i ", (int)get_current_time());
+		printf("start: %zi \n", philo->table->time);
+		printf("       %zi ", get_current_time() - philo->table->time);
 		printf(BLUE"%i"GREEN" has taken a fork\n"DEFAULT, philo->id);
 	}
 	pthread_mutex_unlock(&philo->table->mutex);

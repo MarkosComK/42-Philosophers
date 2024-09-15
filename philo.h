@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 09:31:42 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/15 10:49:27 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/09/15 13:19:29 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_table
 	t_philos		*philos;
 	pthread_mutex_t	mutex;
 	int				forks;
+	unsigned long	time;
 }				t_table;
 
 void	prepare_table(t_philos *philos, t_table *table, char **av);
