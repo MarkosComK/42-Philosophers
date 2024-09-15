@@ -15,7 +15,7 @@
 int	check_args(int ac, char **av)
 {
 	if (ac < 5 || ac > 6)
-		return(printf(RED"Usage:\n"GREEN"./philo"" 5 500 600 800\n" DEFAULT));
+		return (printf(RED"Usage:\n"GREEN"./philo"" 5 500 600 800\n" DEFAULT));
 	if (ft_atoi(av[1]) <= 0 || ft_atoi(av[1]) > MAX_PHILOS)
 		return (printf(RED"Invalid number of philosophers\n"DEFAULT));
 	if (ft_atoi(av[2]) <= 0 || ft_isnum(av[2]))
