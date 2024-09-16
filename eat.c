@@ -48,7 +48,6 @@ void	rivotril(t_philos *philo)
 {
 	if (philo->sleep == 1)
 	{
-		while(get_current_time() - philo->table->time < philo->time_eat);
 		pthread_mutex_lock(&philo->table->mutex);
 		philo->forks -= 2;
 		philo->table->forks += 2;
