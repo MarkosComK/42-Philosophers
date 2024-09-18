@@ -21,8 +21,7 @@ void	eat(t_philos *philo)
 
 	if (philo->id == (int)philo->num_philos)
 	{
-		next = &philo->table->philos[philo->id];
-		own = &philo->table->philos[0];
+		next = &philo->table->philos[0];
 	}
 	else
 		next = &philo->table->philos[philo->id];
@@ -32,8 +31,7 @@ void	eat(t_philos *philo)
 	printf("%zi ", get_current_time() - philo->table->time);
 	printf(BLUE"%i"GREEN" has taken a fork\n"DEFAULT, philo->id);
 //lock next fork
-	if(pthread_mutex_lock(&next->fork))
-		printf("error taking next fork");
+	pthread_mutex_lock(&next->fork);
 	printf("%zi ", get_current_time() - philo->table->time);
 	printf(BLUE"%i"GREEN" has taken a fork\n"DEFAULT, philo->id);
 //start eating
@@ -43,11 +41,9 @@ void	eat(t_philos *philo)
 //after eat goes sleep
 	printf("%zi ", get_current_time() - philo->table->time);
 	printf(BLUE"%i"GREEN" is sleeping\n"DEFAULT, philo->id);
-	if (pthread_mutex_unlock(&own->fork))
-		printf("error unlocking own fork\n");
-	if (pthread_mutex_unlock(&next->fork))
-		printf("error unlocking next fork\n");
 	ft_usleep(philo->time_sleep);
+	pthread_mutex_unlock(&own->fork);
+	pthread_mutex_unlock(&next->fork);
 }
 
 void	rivotril(t_philos *philo)
