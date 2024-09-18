@@ -54,5 +54,13 @@ void	rivotril(t_philos *philo)
 		printf("%zi ", get_current_time() - philo->table->time);
 		printf(BLUE"%i"GREEN" is sleeping\n"DEFAULT, philo->id);
 		pthread_mutex_unlock(&philo->table->mutex);
+		ft_usleep(philo->time_sleep);
 	}
+}
+
+void	sophos(t_philos *philo)
+{
+	philo->sleep = 0;
+	printf("%zi ", get_current_time() - philo->table->time);
+	printf(BLUE"%i"GREEN" is thinking\n"DEFAULT, philo->id);
 }

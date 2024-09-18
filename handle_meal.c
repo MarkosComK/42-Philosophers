@@ -19,8 +19,12 @@ void	*routine(void *arg)
 	philo = (t_philos *)arg;
 	if (philo->id % 2 == 0)
 		ft_usleep(1);
-	eat(philo);
-	rivotril(philo);
+	while(1)
+	{
+		eat(philo);
+		rivotril(philo);
+		sophos(philo);
+	}
 	return (arg);
 }
 

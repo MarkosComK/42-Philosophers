@@ -59,5 +59,6 @@ size_t	get_current_time(void);
 //actions
 void	eat(t_philos *philos);
 void	rivotril(t_philos *philo);
+void	sophos(t_philos *philo);
 
 #endif
