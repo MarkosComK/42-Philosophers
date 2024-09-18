@@ -65,4 +65,6 @@ void	end_meal(t_table *table, t_philos *philos, char **av)
 	(void) philos;
 	pthread_join(table->table, NULL);
 	pthread_mutex_destroy(&table->mutex);
+	// handle each philo fork here
+	pthread_mutex_destroy(&philos->fork);
 }

@@ -15,7 +15,7 @@
 void	philos_input_data(t_philos *philos, char **av)
 {
 	philos->num_philos = ft_atoi(av[1]);
-	philos->forks = 0;
+	pthread_mutex_init(&philos->fork, NULL);
 	philos->time_die = ft_atoi(av[2]);
 	philos->time_eat = ft_atoi(av[3]);
 	philos->time_sleep = ft_atoi(av[4]);

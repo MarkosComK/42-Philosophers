@@ -72,7 +72,6 @@ void	print_philos(t_philos *philo)
 	{
 		printf("philo: %zi\n", i + 1);
 		printf(YELLOW"philo->num_philos:"GREEN"[% 8zi]\n", philo[i].num_philos);
-		printf(YELLOW"philo->forks:"GREEN"     [% 8d]\n", philo[i].forks);
 		printf(YELLOW"philo->time-die:"GREEN"  [% 8zi]\n", philo[i].time_die);
 		printf(YELLOW"philo->time-eat:"GREEN"  [% 8zi]\n", philo[i].time_eat);
 		printf(YELLOW"philo->time-sleep:"GREEN"[% 8zi]\n", philo[i].time_sleep);

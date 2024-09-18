@@ -26,7 +26,7 @@ typedef struct s_philos
 	int			id;
 	pthread_t	thread;
 	size_t		num_philos;
-	int			forks;
+	pthread_mutex_t	fork;
 	size_t		time_die;
 	size_t		time_eat;
 	size_t		time_sleep;
@@ -40,7 +40,6 @@ typedef struct s_table
 	pthread_t		table;
 	t_philos		*philos;
 	pthread_mutex_t	mutex;
-	int				forks;
 	unsigned long	time;
 }				t_table;
 
