@@ -31,13 +31,9 @@ void	eat(t_philos *philo)
 	thread_printf(philo, "has taken a fork");
 //lock next fork
 	pthread_mutex_lock(&next->fork);
-	pthread_mutex_lock(&philo->table->mutex);
-	printf("%zi ", get_current_time() - philo->table->time);
-	printf(BLUE"%i"GREEN" has taken a fork\n"DEFAULT, philo->id);
+	thread_printf(philo, "has taken a fork");
 //start eating
-	printf("%zi ", get_current_time() - philo->table->time);
-	printf(BLUE"%i"GREEN" is eating\n"DEFAULT, philo->id);
-	pthread_mutex_unlock(&philo->table->mutex);
+	thread_printf(philo, "is eating");
 	ft_usleep(philo->time_eat);
 //after eat goes sleep
 	pthread_mutex_unlock(&own->fork);
@@ -46,19 +42,13 @@ void	eat(t_philos *philo)
 
 void	rivotril(t_philos *philo)
 {
-	pthread_mutex_lock(&philo->table->mutex);
-	printf("%zi ", get_current_time() - philo->table->time);
-	printf(BLUE"%i"GREEN" is sleeping\n"DEFAULT, philo->id);
-	pthread_mutex_unlock(&philo->table->mutex);
+	thread_printf(philo, "is sleeping");
 	ft_usleep(philo->time_sleep);
 }
 
 void	sophos(t_philos *philo)
 {
-	pthread_mutex_lock(&philo->table->mutex);
-	printf("%zi ", get_current_time() - philo->table->time);
-	printf(BLUE"%i"GREEN" is thinking\n"DEFAULT, philo->id);
-	pthread_mutex_unlock(&philo->table->mutex);
+	thread_printf(philo, "is thinking");
 }
 
 int	thread_printf(t_philos *philo, char	*msg)
