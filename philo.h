@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 09:31:42 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/15 16:31:26 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/09/19 14:38:27 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,8 @@ void	eat(t_philos *philos);
 void	rivotril(t_philos *philo);
 void	sophos(t_philos *philo);
 int		thread_printf(t_philos *philo, char	*msg);
+//waiter
+int	philo_dead(t_philos *philo);
+void	*waiter(void *arg);
 
 #endif

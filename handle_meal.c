@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 11:58:02 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/19 14:31:48 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/09/19 15:03:55 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	start_meal(t_table *table, t_philos *philos, char **av)
 	(void) philos;
 	i = 0;
 	table->time = get_current_time();
-	if (pthread_create(&table->table, NULL, observe, NULL) != 0)
+	if (pthread_create(&table->table, NULL, waiter, table) != 0)
 		write(2, "TError\n", 7);
 	while (i < table->philos->num_philos)
 	{
