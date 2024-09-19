@@ -57,14 +57,19 @@ void	start_meal(t_table *table, t_philos *philos, char **av)
 		pthread_join(table->philos[i].thread, NULL);
 		i++;
 	}
+	pthread_join(table->table, NULL);
 }
 
 void	end_meal(t_table *table, t_philos *philos, char **av)
 {
 	(void) av;
-	(void) philos;
-	pthread_join(table->table, NULL);
+	size_t	i;
+
+	i = 0;
 	pthread_mutex_destroy(&table->mutex);
-	// handle each philo fork here
-	pthread_mutex_destroy(&philos->fork);
+	while (i < table->philos->num_philos)
+	{
+		pthread_mutex_destroy(&philos[i].fork);
+		i++;
+	}
 }

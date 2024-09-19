@@ -27,7 +27,6 @@ typedef struct s_philos
 	pthread_t	thread;
 	size_t		num_philos;
 	pthread_mutex_t	fork;
-	pthread_mutex_t	print;
 	size_t		time_die;
 	size_t		time_eat;
 	size_t		time_sleep;
