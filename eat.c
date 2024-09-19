@@ -39,18 +39,15 @@ void	eat(t_philos *philo)
 	printf(BLUE"%i"GREEN" is eating\n"DEFAULT, philo->id);
 	ft_usleep(philo->time_eat);
 //after eat goes sleep
-	printf("%zi ", get_current_time() - philo->table->time);
-	printf(BLUE"%i"GREEN" is sleeping\n"DEFAULT, philo->id);
-	ft_usleep(philo->time_sleep);
 	pthread_mutex_unlock(&own->fork);
 	pthread_mutex_unlock(&next->fork);
 }
 
 void	rivotril(t_philos *philo)
 {
-	if (philo->sleep == 1)
-	{
-	}
+	printf("%zi ", get_current_time() - philo->table->time);
+	printf(BLUE"%i"GREEN" is sleeping\n"DEFAULT, philo->id);
+	ft_usleep(philo->time_sleep);
 }
 
 void	sophos(t_philos *philo)
