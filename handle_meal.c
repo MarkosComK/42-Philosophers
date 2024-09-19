@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 11:58:02 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/15 19:16:39 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/09/19 14:31:48 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,6 @@ void	*routine(void *arg)
 		rivotril(philo);
 		sophos(philo);
 	}
-	return (arg);
-}
-
-void	*observe(void *arg)
-{
-	printf(BLUE"Hi im the waiter!\n"DEFAULT);
 	return (arg);
 }
 

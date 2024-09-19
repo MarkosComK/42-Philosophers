@@ -30,8 +30,10 @@ typedef struct s_philos
 	size_t		time_die;
 	size_t		time_eat;
 	size_t		time_sleep;
+	size_t		last_meal;
 	int			sleep;
 	int			eat;
+	int			dead;
 	struct s_table	*table;
 }				t_philos;
 

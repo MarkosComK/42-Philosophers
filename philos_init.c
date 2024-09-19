@@ -21,6 +21,7 @@ void	philos_input_data(t_philos *philos, char **av)
 	philos->time_sleep = ft_atoi(av[4]);
 	philos->sleep = 0;
 	philos->eat = 0;
+	philos->dead = 0;
 }
 
 void	init_philos(t_table *table, t_philos *philos, char **av)

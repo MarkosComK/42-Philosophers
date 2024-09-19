@@ -34,6 +34,7 @@ void	eat(t_philos *philo)
 	thread_printf(philo, "has taken a fork");
 //start eating
 	thread_printf(philo, "is eating");
+	philo->last_meal = get_current_time();
 	ft_usleep(philo->time_eat);
 //after eat goes sleep
 	pthread_mutex_unlock(&own->fork);
