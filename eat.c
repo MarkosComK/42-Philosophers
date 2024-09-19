@@ -28,10 +28,7 @@ void	eat(t_philos *philo)
 	//printf("my fork %p \nnext %p\n\n", &philo->fork, &next->fork);
 //lock own fork
 	pthread_mutex_lock(&own->fork);
-	pthread_mutex_lock(&philo->table->mutex);
-	printf("%zi ", get_current_time() - philo->table->time);
-	printf(BLUE"%i"GREEN" has taken a fork\n"DEFAULT, philo->id);
-	pthread_mutex_unlock(&philo->table->mutex);
+	thread_printf(philo, "has taken a fork");
 //lock next fork
 	pthread_mutex_lock(&next->fork);
 	pthread_mutex_lock(&philo->table->mutex);
@@ -62,4 +59,16 @@ void	sophos(t_philos *philo)
 	printf("%zi ", get_current_time() - philo->table->time);
 	printf(BLUE"%i"GREEN" is thinking\n"DEFAULT, philo->id);
 	pthread_mutex_unlock(&philo->table->mutex);
+}
+
+int	thread_printf(t_philos *philo, char	*msg)
+{
+	int	written;
+
+	written = 0;
+	pthread_mutex_lock(&philo->table->mutex);
+	written += printf("%zi ", get_current_time() - philo->table->time);
+	written += printf(BLUE"%i"GREEN" %s\n"DEFAULT, philo->id, msg);
+	pthread_mutex_unlock(&philo->table->mutex);
+	return (written);
 }
