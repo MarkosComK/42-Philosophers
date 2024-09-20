@@ -19,7 +19,7 @@ void	*routine(void *arg)
 	philo = (t_philos *)arg;
 	if (philo->id % 2 == 0)
 		ft_usleep(1);
-	while(1)
+	while(!philosopher_state(philo))
 	{
 		eat(philo);
 		rivotril(philo);
