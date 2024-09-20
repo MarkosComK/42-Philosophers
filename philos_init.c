@@ -24,7 +24,7 @@ void	philos_input_data(t_philos *philos, char **av)
 	philos->last_meal = get_current_time();
 	philos->sleep = 0;
 	philos->eat = 0;
-	philos->dead = 0;
+	philos->dead = &philos->table->dead_flag;
 }
 
 void	init_philos(t_table *table, t_philos *philos, char **av)
@@ -35,8 +35,8 @@ void	init_philos(t_table *table, t_philos *philos, char **av)
 	while (i < (size_t)ft_atoi(av[1]))
 	{
 		philos[i].id = i + 1;
-		philos_input_data(&philos[i], av);
 		philos[i].table = table;
+		philos_input_data(&philos[i], av);
 		i++;
 	}
 }

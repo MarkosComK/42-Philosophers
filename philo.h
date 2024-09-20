@@ -35,7 +35,7 @@ typedef struct s_philos
 	size_t		last_meal;
 	int			sleep;
 	int			eat;
-	int			dead;
+	int			*dead;
 	struct s_table	*table;
 }				t_philos;
 
@@ -45,6 +45,7 @@ typedef struct s_table
 	t_philos		*philos;
 	pthread_mutex_t	mutex;
 	unsigned long	time;
+	int			dead_flag;
 }				t_table;
 
 void	prepare_table(t_philos *philos, t_table *table, char **av);
@@ -65,7 +66,7 @@ void	rivotril(t_philos *philo);
 void	sophos(t_philos *philo);
 int		thread_printf(t_philos *philo, char	*msg);
 //waiter
-int	philosopher_state(t_philos *philo);
+int	philosophers_state(t_philos *philo);
 int	philosopher_dead(t_philos *philo);
 int	philo_dead(t_philos *philo);
 void	*waiter(void *arg);

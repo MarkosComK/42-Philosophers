@@ -12,10 +12,10 @@
 
 #include "philo.h"
 
-int	philosopher_state(t_philos *philo)
+int	philosophers_state(t_philos *philo)
 {
 	pthread_mutex_lock(&philo->deadtex);
-	if (philo->dead)
+	if (*philo->dead)
 		return (pthread_mutex_unlock(&philo->deadtex), 1);
 	pthread_mutex_unlock(&philo->deadtex);
 	return (0);
@@ -42,7 +42,7 @@ int	philo_dead(t_philos *philo)
 		{
 			pthread_mutex_lock(&philo[0].deadtex);
 			thread_printf(philo, RED"died"DEFAULT);
-			philo[i].dead = 1;
+			*philo->dead = 1;
 			pthread_mutex_unlock(&philo[0].deadtex);
 			return (1);
 		}
@@ -53,11 +53,11 @@ int	philo_dead(t_philos *philo)
 
 void	*waiter(void *arg)
 {
-	t_table	*table;
+	t_philos	*philos;
 
-	table = (t_table *)arg;
+	philos = (t_philos *)arg;
 	while (1)
-		if (philo_dead(table->philos))
+		if (philo_dead(philos))
 			break ;
 	return (arg);
 }

@@ -60,9 +60,12 @@ int	thread_printf(t_philos *philo, char	*msg)
 	int	written;
 
 	written = 0;
-	pthread_mutex_lock(&philo->table->mutex);
-	written += printf("%zi ", get_current_time() - philo->table->time);
-	written += printf(BLUE"%i"GREEN" %s\n"DEFAULT, philo->id, msg);
-	pthread_mutex_unlock(&philo->table->mutex);
+	if (!*philo->dead)
+	{
+		pthread_mutex_lock(&philo->table->mutex);
+		written += printf("%zi ", get_current_time() - philo->table->time);
+		written += printf(BLUE"%i"GREEN" %s\n"DEFAULT, philo->id, msg);
+		pthread_mutex_unlock(&philo->table->mutex);
+	}
 	return (written);
 }

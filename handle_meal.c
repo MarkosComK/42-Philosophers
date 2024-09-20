@@ -19,7 +19,7 @@ void	*routine(void *arg)
 	philo = (t_philos *)arg;
 	if (philo->id % 2 == 0)
 		ft_usleep(1);
-	while(!philosopher_state(philo))
+	while(!philosophers_state(philo))
 	{
 		eat(philo);
 		rivotril(philo);
@@ -36,7 +36,7 @@ void	start_meal(t_table *table, t_philos *philos, char **av)
 	(void) philos;
 	i = 0;
 	table->time = get_current_time();
-	if (pthread_create(&table->table, NULL, waiter, table) != 0)
+	if (pthread_create(&table->table, NULL, waiter, table->philos) != 0)
 		write(2, "TError\n", 7);
 	while (i < table->philos->num_philos)
 	{

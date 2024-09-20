@@ -78,7 +78,7 @@ void	print_philos(t_philos *philo)
 		printf(YELLOW"philo->time-sleep:"GREEN"[% 8zi]\n", philo[i].time_sleep);
 		printf(YELLOW"philo->sleep:"GREEN"[% 8i]\n", philo[i].sleep);
 		printf(YELLOW"philo->eat:"GREEN"[% 8i]\n", philo[i].eat);
-		printf(YELLOW"philo->dead:"GREEN"[% 8i]\n", philo[i].dead);
+		printf(YELLOW"philo->dead:"GREEN"[% 8i]\n", *philo[i].dead);
 		printf("\n"DEFAULT);
 		i++;
 	}
