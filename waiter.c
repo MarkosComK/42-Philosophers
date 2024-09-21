@@ -24,8 +24,7 @@ int	philosophers_state(t_philos *philo)
 int	philosopher_dead(t_philos *philo)
 {
 	pthread_mutex_lock(philo->mealtex);
-	if (get_current_time() - philo->last_meal >= philo->time_die
-	/*&& philo->eat == 0*/)
+	if (get_current_time() - philo->last_meal >= philo->time_die)
 		return (pthread_mutex_unlock(philo->mealtex), 1);
 	pthread_mutex_unlock(philo->mealtex);
 	return (0);
@@ -61,4 +60,3 @@ void	*waiter(void *arg)
 			break ;
 	return (arg);
 }
-
