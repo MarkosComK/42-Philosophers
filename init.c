@@ -17,8 +17,10 @@ void	philos_input_data(t_philos *philos, char **av)
 	philos->num_philos = ft_atoi(av[1]);
 	philos->fork = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t));
 	philos->mealtex = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t));
+	philos->eatentex = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t));
 	pthread_mutex_init(philos->fork, NULL);
 	pthread_mutex_init(philos->mealtex, NULL);
+	pthread_mutex_init(philos->eatentex, NULL);
 	philos->time_die = ft_atoi(av[2]);
 	philos->time_eat = ft_atoi(av[3]);
 	philos->time_sleep = ft_atoi(av[4]);
@@ -44,10 +46,13 @@ void	init_philos(t_table *table, t_philos *philos, char **av)
 
 void	prepare_table(t_philos *philos, t_table *table, char **av)
 {
-	(void) av;
 	table->philos = philos;
 	pthread_mutex_init(&table->mutex, NULL);
 	table->deadtex = (pthread_mutex_t *) malloc(sizeof(pthread_mutex_t));
 	pthread_mutex_init(table->deadtex, NULL);
+	table->eatentex = (pthread_mutex_t *) malloc(sizeof(pthread_mutex_t));
+	pthread_mutex_init(table->eatentex, NULL);
 	table->dead_flag = 0;
+	if (av[5])
+		table->num_of_meals = ft_atoi(av[5]);
 }

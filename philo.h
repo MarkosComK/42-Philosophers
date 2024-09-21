@@ -29,6 +29,7 @@ typedef struct s_philos
 	size_t			num_philos;
 	pthread_mutex_t	*fork;
 	pthread_mutex_t	*mealtex;
+	pthread_mutex_t	*eatentex;
 	size_t			time_die;
 	size_t			time_eat;
 	size_t			time_sleep;
@@ -45,6 +46,8 @@ typedef struct s_table
 	t_philos		*philos;
 	pthread_mutex_t	mutex;
 	pthread_mutex_t	*deadtex;
+	pthread_mutex_t	*eatentex;
+	int				num_of_meals;
 	unsigned long	time;
 	int				dead_flag;
 }				t_table;
@@ -66,7 +69,7 @@ void	*routine(void *arg);
 void	start_meal(t_table *table, t_philos *philos, char **av);
 void	end_meal(t_table *table, t_philos *philos, char **av);
 //main.c
-int	main(int ac, char **av);
+int		main(int ac, char **av);
 //init.c
 void	philos_input_data(t_philos *philos, char **av);
 void	init_philos(t_table *table, t_philos *philos, char **av);
