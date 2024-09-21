@@ -24,7 +24,7 @@ void	philos_input_data(t_philos *philos, char **av)
 	philos->time_sleep = ft_atoi(av[4]);
 	philos->last_meal = get_current_time();
 	philos->sleep = 0;
-	philos->eat = 0;
+	philos->eaten = 0;
 	philos->dead = &philos->table->dead_flag;
 }
 

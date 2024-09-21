@@ -29,7 +29,7 @@ void	eat(t_philos *philo)
 	thread_printf(philo, "is eating");
 	pthread_mutex_lock(own.mealtex);
 	philo->last_meal = get_current_time();
-	philo->eat++;
+	philo->eaten++;
 	pthread_mutex_unlock(own.mealtex);
 	ft_usleep(philo->time_eat);
 	pthread_mutex_unlock(own.fork);
