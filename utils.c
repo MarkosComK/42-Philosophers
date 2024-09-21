@@ -12,57 +12,6 @@
 
 #include "philo.h"
 
-size_t	ft_strlen(char *str)
-{
-	size_t	size;
-
-	size = 0;
-	if (!str)
-		return (-1);
-	while (str[size])
-		size++;
-	return (size);
-}
-
-int	ft_atoi(char *str)
-{
-	int	result;
-	int	i;
-	int	neg;
-
-	result = 0;
-	i = 0;
-	neg = 1;
-	if (!str)
-		return (-1);
-	while (str[i] >= '\t' && str[i] <= '\r' && str[i] == ' ')
-		i++;
-	if (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-')
-			neg = -1;
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-		result = result * 10 + str[i++] - '0';
-	return (result * neg);
-}
-
-int	ft_isnum(char *str)
-{
-	int	i;
-
-	i = 0;
-	if (!str)
-		return (-1);
-	while (str[i])
-	{
-		if (str[i] < '0' || str[i++] > '9')
-			return (1);
-	}
-	return (0);
-}
-
 int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;

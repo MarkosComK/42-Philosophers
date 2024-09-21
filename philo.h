@@ -49,24 +49,31 @@ typedef struct s_table
 	int				dead_flag;
 }				t_table;
 
-void	prepare_table(t_philos *philos, t_table *table, char **av);
-void	init_philos(t_table *table, t_philos *philos, char **av);
-void	start_meal(t_table *table, t_philos *philos, char **av);
-void	end_meal(t_table *table, t_philos *philos, char **av);
+//checkers.c
 int		check_args(int ac, char **av);
-//utils.c
+size_t	ft_strlen(char *str);
 int		ft_atoi(char *str);
 int		ft_isnum(char *str);
-void	print_philos(t_philos *philo);
-void	destroy_all(char *str, t_table *table, pthread_mutex_t *forks);
-int		ft_usleep(size_t milliseconds);
-size_t	get_current_time(void);
-int		ft_strcmp(char *s1, char *s2);
-//actions
+//eat.c
 void	eat(t_philos *philos);
 void	rivotril(t_philos *philo);
 void	sophos(t_philos *philo);
 void	thread_printf(t_philos *philo, char	*msg);
+//get_time.c
+int		ft_usleep(size_t milliseconds);
+size_t	get_current_time(void);
+//handle_meal.c
+void	*routine(void *arg);
+void	start_meal(t_table *table, t_philos *philos, char **av);
+void	end_meal(t_table *table, t_philos *philos, char **av);
+//main.c
+//init.c
+void	philos_input_data(t_philos *philos, char **av);
+void	init_philos(t_table *table, t_philos *philos, char **av);
+void	prepare_table(t_philos *philos, t_table *table, char **av);
+//utils.c
+int		ft_strcmp(char *s1, char *s2);
+void	print_philos(t_philos *philo);
 //waiter
 int		philosophers_state(t_philos *philo);
 int		philosopher_dead(t_philos *philo);
