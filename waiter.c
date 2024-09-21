@@ -14,20 +14,20 @@
 
 int	philosophers_state(t_philos *philo)
 {
-	pthread_mutex_lock(&philo->deadtex);
+	pthread_mutex_lock(philo->table->deadtex);
 	if (*philo->dead)
-		return (pthread_mutex_unlock(&philo->deadtex), 1);
-	pthread_mutex_unlock(&philo->deadtex);
+		return (pthread_mutex_unlock(philo->table->deadtex), 1);
+	pthread_mutex_unlock(philo->table->deadtex);
 	return (0);
 }
 
 int	philosopher_dead(t_philos *philo)
 {
-	pthread_mutex_lock(&philo->mealtex);
+	pthread_mutex_lock(philo->mealtex);
 	if (get_current_time() - philo->last_meal >= philo->time_die
 	/*&& philo->eat == 0*/)
-		return (pthread_mutex_unlock(&philo->mealtex), 1);
-	pthread_mutex_unlock(&philo->mealtex);
+		return (pthread_mutex_unlock(philo->mealtex), 1);
+	pthread_mutex_unlock(philo->mealtex);
 	return (0);
 }
 
@@ -40,10 +40,10 @@ int	philo_dead(t_philos *philo)
 	{
 		if (philosopher_dead(&philo[i]))
 		{
-			pthread_mutex_lock(&philo[0].deadtex);
+			pthread_mutex_lock(philo->table->deadtex);
 			thread_printf(philo, RED"died"DEFAULT);
 			*philo->dead = 1;
-			pthread_mutex_unlock(&philo[0].deadtex);
+			pthread_mutex_unlock(philo->table->deadtex);
 			return (1);
 		}
 		i++;

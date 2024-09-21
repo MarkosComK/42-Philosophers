@@ -18,6 +18,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <sys/time.h>
+# include <stdlib.h>
 
 # define MAX_PHILOS 200
 
@@ -26,9 +27,8 @@ typedef struct s_philos
 	int			id;
 	pthread_t	thread;
 	size_t		num_philos;
-	pthread_mutex_t	fork;
-	pthread_mutex_t	deadtex;
-	pthread_mutex_t	mealtex;
+	pthread_mutex_t	*fork;
+	pthread_mutex_t	*mealtex;
 	size_t		time_die;
 	size_t		time_eat;
 	size_t		time_sleep;
@@ -44,6 +44,7 @@ typedef struct s_table
 	pthread_t		table;
 	t_philos		*philos;
 	pthread_mutex_t	mutex;
+	pthread_mutex_t	*deadtex;
 	unsigned long	time;
 	int			dead_flag;
 }				t_table;

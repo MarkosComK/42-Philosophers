@@ -17,5 +17,7 @@ void	prepare_table(t_philos *philos, t_table *table, char **av)
 	(void) av;
 	table->philos = philos;
 	pthread_mutex_init(&table->mutex, NULL);
+	table->deadtex = (pthread_mutex_t *) malloc(sizeof(pthread_mutex_t));
+	pthread_mutex_init(table->deadtex, NULL);
 	table->dead_flag = 0;
 }

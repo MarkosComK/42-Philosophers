@@ -61,11 +61,14 @@ void	end_meal(t_table *table, t_philos *philos, char **av)
 
 	i = 0;
 	pthread_mutex_destroy(&table->mutex);
+	pthread_mutex_destroy(table->deadtex);
+	free(table->deadtex);
 	while (i < table->philos->num_philos)
 	{
-		pthread_mutex_destroy(&philos[i].fork);
-		pthread_mutex_destroy(&philos[i].deadtex);
-		pthread_mutex_destroy(&philos[i].mealtex);
+		pthread_mutex_destroy(philos[i].fork);
+		free(philos[i].fork);
+		pthread_mutex_destroy(philos[i].mealtex);
+		free(philos[i].mealtex);
 		i++;
 	}
 }
