@@ -66,6 +66,7 @@ void	*routine(void *arg);
 void	start_meal(t_table *table, t_philos *philos, char **av);
 void	end_meal(t_table *table, t_philos *philos, char **av);
 //main.c
+int	main(int ac, char **av);
 //init.c
 void	philos_input_data(t_philos *philos, char **av);
 void	init_philos(t_table *table, t_philos *philos, char **av);
