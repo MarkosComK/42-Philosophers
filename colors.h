@@ -23,7 +23,6 @@
 # define CYAN "\033[0;96m"
 # define WHITE "\033[0;97m"
 # define BOLD "\033[1m"
-# define B_WHITE BOLD"\033[0;97m"
 # define BROWN "\033[0;33m"
 # define L_BROWN "\033[1;33m"
 # define ORANGE "\033[0;38;5;208m"
