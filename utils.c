@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 11:15:48 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/14 15:38:50 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/09/21 15:27:47 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,13 @@ void	thread_printf(t_philos *philo, char	*msg)
 		pthread_mutex_lock(&philo->table->mutex);
 		printf(WHITE"%4zi "DEFAULT, get_current_time() - philo->table->time);
 		if (ft_strcmp(msg, "has taken a fork") == 0)
-			printf(BOLD"%i "GREEN"%s\n"DEFAULT, philo->id, msg);
+			printf(BOLD"%i "GREEN"%s %8s\n"DEFAULT, philo->id, msg, "🍽️");
 		else if (ft_strcmp(msg, "is eating") == 0)
-			printf(BOLD"%i "YELLOW"%s\n"DEFAULT, philo->id, msg);
+			printf(BOLD"%i "BLUE"%s %12s\n"DEFAULT, philo->id, msg, "🥘");
 		else if (ft_strcmp(msg, "is sleeping") == 0)
-			printf(BOLD"%i "GRAY"%s\n"DEFAULT, philo->id, msg);
+			printf(BOLD"%i "GRAY"%s %10s\n"DEFAULT, philo->id, msg, "💤");
 		else if (ft_strcmp(msg, "is thinking") == 0)
-			printf(BOLD"%i "RED"%s\n"DEFAULT, philo->id, msg);
+			printf(BOLD"%i "MAGENTA"%s %10s\n"DEFAULT, philo->id, msg, "🤔");
 		else
 			printf(RED"%i "GRAY"%s\n", philo->id, msg);
 		pthread_mutex_unlock(&philo->table->mutex);
