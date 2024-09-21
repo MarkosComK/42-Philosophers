@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 14:31:07 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/19 15:17:51 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/09/21 15:44:34 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	philo_dead(t_philos *philo)
 		if (philosopher_dead(&philo[i]))
 		{
 			pthread_mutex_lock(philo->table->deadtex);
-			thread_printf(philo, RED"died"DEFAULT);
+			thread_printf(philo, "died");
 			*philo->dead = 1;
 			pthread_mutex_unlock(philo->table->deadtex);
 			return (1);
@@ -60,7 +60,7 @@ int	check_eaten(t_philos *philo)
 	while (i < philo[0].num_philos)
 	{
 		pthread_mutex_lock(philo->table->eatentex);
-		if (philo[i].eaten >= philo->table->num_of_meals)
+		if (philo[i].eaten >= philo->table->num_of_meals && philo->table->num_of_meals != -1)
 			total++;
 		pthread_mutex_unlock(philo->table->eatentex);
 		i++;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philos_init.c                                      :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 13:55:25 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/19 14:41:24 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/09/21 15:29:09 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,6 @@ void	prepare_table(t_philos *philos, t_table *table, char **av)
 	table->dead_flag = 0;
 	if (av[5])
 		table->num_of_meals = ft_atoi(av[5]);
+	else
+		table->num_of_meals = -1;
 }
