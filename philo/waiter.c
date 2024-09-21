@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 14:31:07 by marsoare          #+#    #+#             */
-/*   Updated: 2024/09/21 15:44:34 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/09/21 16:51:34 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	philosophers_state(t_philos *philo)
 int	philosopher_dead(t_philos *philo)
 {
 	pthread_mutex_lock(philo->mealtex);
-	if (get_current_time() - philo->last_meal >= philo->time_die)
+	if (get_current_time() - philo->last_meal > philo->time_die)
 		return (pthread_mutex_unlock(philo->mealtex), 1);
 	pthread_mutex_unlock(philo->mealtex);
 	return (0);
