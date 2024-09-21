@@ -58,7 +58,6 @@ int		ft_isnum(char *str);
 void	eat(t_philos *philos);
 void	rivotril(t_philos *philo);
 void	sophos(t_philos *philo);
-void	thread_printf(t_philos *philo, char	*msg);
 //get_time.c
 int		ft_usleep(size_t milliseconds);
 size_t	get_current_time(void);
@@ -74,6 +73,7 @@ void	prepare_table(t_philos *philos, t_table *table, char **av);
 //utils.c
 int		ft_strcmp(char *s1, char *s2);
 void	print_philos(t_philos *philo);
+void	thread_printf(t_philos *philo, char	*msg);
 //waiter
 int		philosophers_state(t_philos *philo);
 int		philosopher_dead(t_philos *philo);
