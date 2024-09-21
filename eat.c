@@ -64,17 +64,16 @@ int	thread_printf(t_philos *philo, char	*msg)
 	{
 		pthread_mutex_lock(&philo->table->mutex);
 		written += printf(WHITE"%4zi "DEFAULT, get_current_time() - philo->table->time);
-		if (ft_strcmp(msg, "has taken a fork") == 0) {
+		if (ft_strcmp(msg, "has taken a fork") == 0)
 			written += printf(BRIGHT_GREEN"%i "GREEN"%s\n"DEFAULT, philo->id, msg);
-		} else if (ft_strcmp(msg, "is eating") == 0) {
+		else if (ft_strcmp(msg, "is eating") == 0)
 			written += printf(YELLOW"%i "YELLOW"%s\n"DEFAULT, philo->id, msg);
-		} else if (ft_strcmp(msg, "is sleeping") == 0) {
+		else if (ft_strcmp(msg, "is sleeping") == 0)
 			written += printf(LIGHT_GRAY"%i "GRAY"%s\n"DEFAULT, philo->id, msg);
-		} else if (ft_strcmp(msg, "is thinking") == 0) {
+		else if (ft_strcmp(msg, "is thinking") == 0)
 			written += printf(RED"%i "RED"%s\n"DEFAULT, philo->id, msg);
-		} else {
+		else
 			written += printf(RED"%i "GRAY"%s\n", philo->id, msg);
-		}
 		pthread_mutex_unlock(&philo->table->mutex);
 	}
 	return (written);

@@ -19,7 +19,7 @@ void	*routine(void *arg)
 	philo = (t_philos *)arg;
 	if (philo->id % 2 == 0)
 		ft_usleep(1);
-	while(!philosophers_state(philo))
+	while (!philosophers_state(philo))
 	{
 		eat(philo);
 		rivotril(philo);
@@ -56,10 +56,10 @@ void	start_meal(t_table *table, t_philos *philos, char **av)
 
 void	end_meal(t_table *table, t_philos *philos, char **av)
 {
-	(void) av;
 	size_t	i;
 
 	i = 0;
+	(void) av;
 	pthread_mutex_destroy(&table->mutex);
 	pthread_mutex_destroy(table->deadtex);
 	free(table->deadtex);
