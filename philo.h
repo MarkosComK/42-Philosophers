@@ -61,6 +61,7 @@ void	print_philos(t_philos *philo);
 void	destroy_all(char *str, t_table *table, pthread_mutex_t *forks);
 int		ft_usleep(size_t milliseconds);
 size_t	get_current_time(void);
+int	ft_strcmp(char *s1, char *s2);
 //actions
 void	eat(t_philos *philos);
 void	rivotril(t_philos *philo);
