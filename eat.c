@@ -58,7 +58,7 @@ void	thread_printf(t_philos *philo, char	*msg)
 		else if (ft_strcmp(msg, "is eating") == 0)
 			printf(YELLOW"%i "YELLOW"%s\n"DEFAULT, philo->id, msg);
 		else if (ft_strcmp(msg, "is sleeping") == 0)
-			printf(LIGHT_GRAY"%i "GRAY"%s\n"DEFAULT, philo->id, msg);
+			printf(GRAY"%i "GRAY"%s\n"DEFAULT, philo->id, msg);
 		else if (ft_strcmp(msg, "is thinking") == 0)
 			printf(RED"%i "RED"%s\n"DEFAULT, philo->id, msg);
 		else
