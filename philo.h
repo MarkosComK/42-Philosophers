@@ -66,7 +66,7 @@ int		ft_strcmp(char *s1, char *s2);
 void	eat(t_philos *philos);
 void	rivotril(t_philos *philo);
 void	sophos(t_philos *philo);
-int		thread_printf(t_philos *philo, char	*msg);
+void	thread_printf(t_philos *philo, char	*msg);
 //waiter
 int		philosophers_state(t_philos *philo);
 int		philosopher_dead(t_philos *philo);
