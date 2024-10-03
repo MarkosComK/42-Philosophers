@@ -22,8 +22,6 @@ int	ft_usleep(size_t milliseconds)
 	return (0);
 }
 
-// Gets the current time in milliseconds
-
 size_t	get_current_time(void)
 {
 	struct timeval	time;
