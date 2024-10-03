@@ -1,8 +1,10 @@
 <h1 align="center">
-	42cursus libft
+	42-Philosophers
 </h1>
 
-![image](https://github.com/user-attachments/assets/ea58e1b3-5f62-4785-8973-4a2beb30b9a7)
+<p align="center">
+    <a src="https://github.com/user-attachments/assets/4bd1a35d-56dc-4763-92e7-77d1f345f0b2">Dining philosophers problem</a>
+</p>
 
 <p align="center">
 	<b><i>Development repo for 42cursus philosophers project</i></b><br>
@@ -31,6 +33,8 @@
 
 ## 🗣️ About
 
+![ezgif-2-2472c8856f](https://github.com/user-attachments/assets/4bd1a35d-56dc-4763-92e7-77d1f345f0b2)
+
 > _The aim of this project is understand the cre concepts envolving threads by solving the <a src="https://en.wikipedia.org/wiki/Dining_philosophers_problem">Dining philosophers problem</a>._
 
 <br>
@@ -45,7 +49,7 @@
 
 [C-Programming-Language-2nd-Edition (PDF)](https://github.com/MarkosComK/42-Libft/files/14312769/C-Programming-Language-2nd-Edition.pdf)
 
-For detailed information, refer to the [subject of the project](https://github.com/MarkosComK/42-Libft/files/14319130/00-libft-en.pdf)
+For detailed information, refer to the [subject of the project](https://github.com/user-attachments/files/17247774/en.subject.pdf)
 
 
 	🚀 This project consists of coding basic C functions (see below), which are then compiled
@@ -74,8 +78,5 @@ $ cd path/to/philo && make
 
 ### Third-party testers
 
-* [xicodomingues/francinette](https://github.com/xicodomingues/francinette)
-* [jtoty/Libftest](https://github.com/jtoty/Libftest)
-* [alelievr/libft-unit-test](https://github.com/alelievr/libft-unit-test)
-* [Night-squad/libft-war-machine-v2019](https://github.com/Night-squad/libft-war-machine-v2019)
-* [t0mm4rx/libftdestructor](https://github.com/t0mm4rx/libftdestructor)
+* [LazyPhilosophersTester](https://github.com/MichelleJiam/LazyPhilosophersTester)
+* [Philosphers-42Project-Tester](https://github.com/newlinuxbot/Philosphers-42Project-Tester)
