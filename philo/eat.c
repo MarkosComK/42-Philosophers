@@ -12,6 +12,24 @@
 
 #include "philo.h"
 
+void	*routine(void *arg)
+{
+	t_philos	*philo;
+
+	philo = (t_philos *)arg;
+	if (philo->id % 2 == 0)
+		ft_usleep(1);
+	if (ft_one_philo(philo))
+		return (arg);
+	while (!philosophers_state(philo))
+	{
+		gluttony(philo);
+		rivotril(philo);
+		sophos(philo);
+	}
+	return (arg);
+}
+
 void	gluttony(t_philos *philo)
 {
 	pthread_mutex_t	*next_fork;

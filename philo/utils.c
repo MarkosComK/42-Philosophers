@@ -12,6 +12,22 @@
 
 #include "philo.h"
 
+int	ft_one_philo(t_philos *philo)
+{
+	ft_usleep(1);
+	if (philo->num_philos == 1)
+	{
+		thread_printf(philo, "has taken a fork");
+		ft_usleep(philo->time_die);
+		thread_printf(philo, "died");
+		pthread_mutex_lock(philo->table->deadtex);
+		*philo->dead = 1;
+		pthread_mutex_unlock(philo->table->deadtex);
+		return (0);
+	}
+	return (0);
+}
+
 int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;

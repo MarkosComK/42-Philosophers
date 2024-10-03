@@ -75,6 +75,7 @@ void	philos_input_data(t_philos *philos, char **av);
 void	init_philos(t_table *table, t_philos *philos, char **av);
 void	prepare_table(t_philos *philos, t_table *table, char **av);
 //utils.c
+int		ft_one_philo(t_philos *philo);
 int		ft_strcmp(char *s1, char *s2);
 void	print_philos(t_philos *philo);
 void	thread_printf(t_philos *philo, char	*msg);
