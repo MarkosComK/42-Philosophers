@@ -14,7 +14,15 @@ BONUS_DIR		=	bonus
 
 HEADER			=	philo.h
 
-SOURCES			=	$(wildcard *.c)
+SOURCES			=	checkers.c \
+					get_time.c \
+					handle_meal.c \
+					init.c \
+					main.c \
+					routine.c \
+					utils.c \
+					waiter.c
+
 
 OBJECTS			= $(SOURCES:.c=.o)
 
