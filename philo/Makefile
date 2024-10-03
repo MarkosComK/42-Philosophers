@@ -23,7 +23,6 @@ SOURCES			=	checkers.c \
 					utils.c \
 					waiter.c
 
-
 OBJECTS			= $(SOURCES:.c=.o)
 
 NAME			=	philo
