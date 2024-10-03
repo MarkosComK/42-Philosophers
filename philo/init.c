@@ -53,7 +53,8 @@ void	prepare_table(t_philos *philos, t_table *table, char **av)
 	table->eatentex = (pthread_mutex_t *) malloc(sizeof(pthread_mutex_t));
 	pthread_mutex_init(table->eatentex, NULL);
 	i = 0;
-	table->forks = (pthread_mutex_t *) malloc(sizeof(pthread_mutex_t) * ft_atoi(av[1]));
+	table->forks = (pthread_mutex_t *)
+		malloc(sizeof(pthread_mutex_t) * ft_atoi(av[1]));
 	while (i < (size_t)ft_atoi(av[1]))
 	{
 		pthread_mutex_init(&table->forks[i], NULL);

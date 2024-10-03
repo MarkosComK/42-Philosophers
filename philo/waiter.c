@@ -65,7 +65,8 @@ int	check_eaten(t_philos *philo)
 	while (i < philo[0].num_philos)
 	{
 		pthread_mutex_lock(philo->table->eatentex);
-		if (philo[i].eaten >= philo->table->num_of_meals && philo->table->num_of_meals != -1)
+		if (philo[i].eaten >= philo->table->num_of_meals
+			&& philo->table->num_of_meals != -1)
 			total++;
 		pthread_mutex_unlock(philo->table->eatentex);
 		i++;

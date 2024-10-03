@@ -37,7 +37,8 @@ void	gluttony(t_philos *philo)
 
 	own_fork = &philo->table->forks[(philo->id - 1) % philo->num_philos];
 	next_fork = &philo->table->forks[(philo->id) % philo->num_philos];
-	if (philo->id % 2 == 0) {
+	if (philo->id % 2 == 0)
+	{
 		next_fork = own_fork;
 		own_fork = &philo->table->forks[(philo->id) % philo->num_philos];
 	}
