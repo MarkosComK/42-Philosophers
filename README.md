@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-    <a src="https://github.com/user-attachments/assets/4bd1a35d-56dc-4763-92e7-77d1f345f0b2">Dining philosophers problem</a>
+    <img src="https://github.com/user-attachments/assets/4bd1a35d-56dc-4763-92e7-77d1f345f0b2">
 </p>
 
 <p align="center">
