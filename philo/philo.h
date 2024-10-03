@@ -27,7 +27,6 @@ typedef struct s_philos
 	int				id;
 	pthread_t		thread;
 	size_t			num_philos;
-	pthread_mutex_t	*fork;
 	pthread_mutex_t	*mealtex;
 	pthread_mutex_t	*eatentex;
 	size_t			time_die;
@@ -47,6 +46,7 @@ typedef struct s_table
 	pthread_mutex_t	mutex;
 	pthread_mutex_t	*deadtex;
 	pthread_mutex_t	*eatentex;
+	pthread_mutex_t	*forks;
 	int				num_of_meals;
 	unsigned long	time;
 	int				dead_flag;
