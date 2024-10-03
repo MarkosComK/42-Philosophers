@@ -57,23 +57,23 @@ int		check_args(int ac, char **av);
 size_t	ft_strlen(char *str);
 int		ft_atoi(char *str);
 int		ft_isnum(char *str);
-//routine.c
-void	*routine(void *arg);
-void	gluttony(t_philos *philos);
-void	rivotril(t_philos *philo);
-void	sophos(t_philos *philo);
 //get_time.c
 int		ft_usleep(size_t milliseconds);
 size_t	get_current_time(void);
 //handle_meal.c
 void	start_meal(t_table *table, t_philos *philos, char **av);
 void	end_meal(t_table *table, t_philos *philos, char **av);
-//main.c
-int		main(int ac, char **av);
 //init.c
 void	philos_input_data(t_philos *philos, char **av);
 void	init_philos(t_table *table, t_philos *philos, char **av);
 void	prepare_table(t_philos *philos, t_table *table, char **av);
+//main.c
+int		main(int ac, char **av);
+//routine.c
+void	*routine(void *arg);
+void	gluttony(t_philos *philos);
+void	rivotril(t_philos *philo);
+void	sophos(t_philos *philo);
 //utils.c
 int		ft_one_philo(t_philos *philo);
 int		ft_strcmp(char *s1, char *s2);
