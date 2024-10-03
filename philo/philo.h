@@ -58,7 +58,7 @@ size_t	ft_strlen(char *str);
 int		ft_atoi(char *str);
 int		ft_isnum(char *str);
 //eat.c
-void	eat(t_philos *philos);
+void	gluttony(t_philos *philos);
 void	rivotril(t_philos *philo);
 void	sophos(t_philos *philo);
 //get_time.c

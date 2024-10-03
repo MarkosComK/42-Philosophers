@@ -39,7 +39,7 @@ void	*routine(void *arg)
 		return (arg);
 	while (!philosophers_state(philo))
 	{
-		eat(philo);
+		gluttony(philo);
 		rivotril(philo);
 		sophos(philo);
 	}

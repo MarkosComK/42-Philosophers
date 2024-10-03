@@ -12,7 +12,7 @@
 
 #include "philo.h"
 
-void	eat(t_philos *philo)
+void	gluttony(t_philos *philo)
 {
 	pthread_mutex_t	*next_fork;
 	pthread_mutex_t	*own_fork;
