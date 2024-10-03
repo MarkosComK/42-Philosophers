@@ -58,6 +58,7 @@ size_t	ft_strlen(char *str);
 int		ft_atoi(char *str);
 int		ft_isnum(char *str);
 //eat.c
+void	*routine(void *arg);
 void	gluttony(t_philos *philos);
 void	rivotril(t_philos *philo);
 void	sophos(t_philos *philo);
@@ -65,7 +66,6 @@ void	sophos(t_philos *philo);
 int		ft_usleep(size_t milliseconds);
 size_t	get_current_time(void);
 //handle_meal.c
-void	*routine(void *arg);
 void	start_meal(t_table *table, t_philos *philos, char **av);
 void	end_meal(t_table *table, t_philos *philos, char **av);
 //main.c
