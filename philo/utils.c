@@ -33,7 +33,6 @@ void	print_philos(t_philos *philo)
 	{
 		printf("philo: %zi\n", i + 1);
 		printf(YELLOW"philo->num_philos:"GREEN"[% 8zi]\n", philo[i].num_philos);
-		printf(YELLOW"philo->fork:"GREEN"[%8p]\n", &philo[i].fork);
 		printf(YELLOW"philo->time-die:"GREEN"  [% 8zi]\n", philo[i].time_die);
 		printf(YELLOW"philo->time-eat:"GREEN"  [% 8zi]\n", philo[i].time_eat);
 		printf(YELLOW"philo->time-sleep:"GREEN"[% 8zi]\n", philo[i].time_sleep);
@@ -49,6 +48,7 @@ void	print_philos(t_philos *philo)
 void	thread_printf(t_philos *philo, char	*msg)
 {
 	pthread_mutex_lock(&philo->table->mutex);
+	pthread_mutex_lock(philo->table->deadtex);
 	if (!*philo->dead)
 	{
 		printf(WHITE"%4zi "DEFAULT, get_current_time() - philo->table->time);
@@ -63,5 +63,6 @@ void	thread_printf(t_philos *philo, char	*msg)
 		else if (ft_strcmp(msg, "died") == 0)
 			printf(RED"%i %9s %14s\n"DEFAULT, philo->id, msg, "☠️");
 	}
+	pthread_mutex_unlock(philo->table->deadtex);
 	pthread_mutex_unlock(&philo->table->mutex);
 }
