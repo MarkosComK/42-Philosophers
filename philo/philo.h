@@ -57,7 +57,7 @@ int		check_args(int ac, char **av);
 size_t	ft_strlen(char *str);
 int		ft_atoi(char *str);
 int		ft_isnum(char *str);
-//eat.c
+//routine.c
 void	*routine(void *arg);
 void	gluttony(t_philos *philos);
 void	rivotril(t_philos *philo);
