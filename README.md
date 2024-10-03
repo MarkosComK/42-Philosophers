@@ -33,8 +33,6 @@
 
 ## 🗣️ About
 
-![ezgif-2-2472c8856f](https://github.com/user-attachments/assets/4bd1a35d-56dc-4763-92e7-77d1f345f0b2)
-
 > _The aim of this project is understand the cre concepts envolving threads by solving the <a src="https://en.wikipedia.org/wiki/Dining_philosophers_problem">Dining philosophers problem</a>._
 
 <br>
