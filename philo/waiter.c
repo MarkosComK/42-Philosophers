@@ -39,8 +39,10 @@ int	philo_dead(t_philos *philo)
 	{
 		if (philosopher_dead(&philo[i]))
 		{
+			pthread_mutex_lock(philo->table->deadtex);
 			if (!*philo->dead)
 			{
+				pthread_mutex_unlock(philo->table->deadtex);
 				thread_printf(philo, "died");
 				pthread_mutex_lock(philo->table->deadtex);
 				*philo->dead = 1;
