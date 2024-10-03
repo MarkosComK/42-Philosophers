@@ -23,7 +23,7 @@ NAME			=	philo
 CC				=	cc
 RM				=	rm -f
 
-CFLAGS			=	-Wall -Wextra -Werror -g -fsanitize=thread
+CFLAGS			=	-Wall -Wextra -Werror -g
 #-fsanitize=thread
 
 .c.o:
