@@ -67,12 +67,12 @@ void	end_meal(t_table *table, t_philos *philos, char **av)
 	free(table->eatentex);
 	while (i < table->philos->num_philos)
 	{
-		pthread_mutex_destroy(philos[i].fork);
-		free(philos[i].fork);
 		pthread_mutex_destroy(philos[i].mealtex);
 		free(philos[i].mealtex);
 		pthread_mutex_destroy(philos[i].eatentex);
 		free(philos[i].eatentex);
+		pthread_mutex_destroy(&table->forks[i]);
 		i++;
 	}
+	free(table->forks);
 }
