@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 09:31:42 by marsoare          #+#    #+#             */
-/*   Updated: 2024/10/04 17:29:41 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/10/04 18:36:55 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,12 @@ typedef struct s_philos
 
 typedef struct s_table
 {
+	pthread_t		table;
 	size_t			num_philos;
 	t_philos		*philos;
 	sem_t			*forks;
+	sem_t			*dead;
+	sem_t			*meal;
 	unsigned long	time;
 	int				num_of_meals;
 	int				dead_flag;
@@ -73,5 +76,9 @@ void	sophos(t_philos *philo);
 //utils.c
 void	print_philo(t_philos *philo);
 void	thread_printf(t_philos *philo, char *msg);
+//waiter.c
+int	philosophers_state(t_philos *philo);
+int	philo_dead(t_philos *philo);
+void	*waiter(void *arg);
 
 #endif

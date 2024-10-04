@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 19:31:02 by marsoare          #+#    #+#             */
-/*   Updated: 2024/10/04 17:48:06 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/10/04 18:31:22 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,12 @@ void	init_table(t_table *table, t_philos *philos, char **av)
 	table->philos = philos;
 	sem_unlink("forks");
 	table->forks = sem_open("forks", O_CREAT, 0644, table->num_philos);
+	sem_unlink("dead");
+	table->dead = sem_open("dead", O_CREAT, 0644, table->num_philos);
+	sem_unlink("meal");
+	table->meal = sem_open("meal", O_CREAT, 0644, 0);
 	i = 0;
-	table->dead_flag = 0;
-	table->time = get_current_time();
+	table->dead_flag = table->num_philos;
 	if (av[5])
 		table->num_of_meals = ft_atoi(av[5]);
 	else

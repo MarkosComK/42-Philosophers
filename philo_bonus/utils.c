@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 15:24:12 by marsoare          #+#    #+#             */
-/*   Updated: 2024/10/04 17:43:57 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/10/04 18:33:42 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,10 @@ void	print_philo(t_philos *philo)
 
 void	thread_printf(t_philos *philo, char	*msg)
 {
-	if (!*philo->dead)
+	//printf("time dif: %zi\n", get_current_time() - philo->table->time);
+	printf("dead-state: %i\n", *philo->dead);
+	printf("last-meal: %zi\n", get_current_time() - philo->last_meal);
+	if (*philo->dead == philo->num_philos)
 	{
 		printf(WHITE"%4zi "DEFAULT, get_current_time() - philo->table->time);
 		if (ft_strcmp(msg, "has taken a fork") == 0)
