@@ -12,12 +12,18 @@
 
 #include "philo_bonus.h"
 
+void	*routine(void *arg)
+{
+	int	id = (intptr_t)arg;
+	printf("Hi, i'm thread with id: %i\n", id);
+	return (arg);
+}
+
 void	init_table(t_table *table, t_philos *philos, char **av)
 {
 	size_t	i;
 	pid_t	pid;
 	
-	(void) philos;
 	i = 0;
 	table->num_philos = ft_atoi(av[1]);
 	while (i < table->num_philos)
@@ -31,6 +37,8 @@ void	init_table(t_table *table, t_philos *philos, char **av)
 		else if (pid == 0)
 		{
 			printf(GREEN "Child process %zi created with pid: %i\n" DEFAULT, i + 1, getpid());
+			pthread_create(&philos[i].philo, NULL, routine, (void *)i+1);
+			pthread_join(philos[i].philo, NULL);
 			sleep(1);
 			exit(0);
 		}

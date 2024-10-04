@@ -19,11 +19,14 @@
 # include <sys/time.h>
 # include <sys/wait.h>
 # include <stdlib.h>
+# include <pthread.h>
 
 # define MAX_PHILOS 200
 
 typedef struct s_philos
 {
+	pthread_t		philo;
+	pid_t			pid;
 	int				id;
 	size_t			time_die;
 	size_t			time_eat;
