@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 09:31:42 by marsoare          #+#    #+#             */
-/*   Updated: 2024/10/04 15:33:19 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/10/04 15:43:19 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,18 @@ typedef struct s_table
 	int				dead_flag;
 }				t_table;
 
-//checkers.c
+//check_args.c
 int		check_args(int ac, char **av);
 size_t	ft_strlen(char *str);
 int		ft_atoi(char *str);
 int		ft_isnum(char *str);
+//dinner.c
+void	start_dinner(t_table *table, t_philos *philos, char **av);
 //init.c
 void	init_philos(t_table *table, t_philos *philos, char **av);
-void	init_table(t_table *table, t_philos *philos, char **av);
+void	philos_input_data(t_philos *philos, char **av);
+//routine.c
+void	*routine(void *arg);
 //utils.c
 void	print_philo(t_philos *philo);
 
