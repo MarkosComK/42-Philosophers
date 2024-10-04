@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 09:31:42 by marsoare          #+#    #+#             */
-/*   Updated: 2024/10/04 15:43:19 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/10/04 16:39:29 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,9 @@ int		ft_atoi(char *str);
 int		ft_isnum(char *str);
 //dinner.c
 void	start_dinner(t_table *table, t_philos *philos, char **av);
+//get_time.c
+int		ft_usleep(size_t milliseconds);
+size_t	get_current_time(void);
 //init.c
 void	init_philos(t_table *table, t_philos *philos, char **av);
 void	philos_input_data(t_philos *philos, char **av);
