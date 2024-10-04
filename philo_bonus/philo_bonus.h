@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 09:31:42 by marsoare          #+#    #+#             */
-/*   Updated: 2024/10/03 19:32:54 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/10/04 15:33:19 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_philos
 	pthread_t		philo;
 	pid_t			pid;
 	int				id;
+	int				num_philos;
 	size_t			time_die;
 	size_t			time_eat;
 	size_t			time_sleep;
@@ -54,6 +55,9 @@ size_t	ft_strlen(char *str);
 int		ft_atoi(char *str);
 int		ft_isnum(char *str);
 //init.c
+void	init_philos(t_table *table, t_philos *philos, char **av);
 void	init_table(t_table *table, t_philos *philos, char **av);
+//utils.c
+void	print_philo(t_philos *philo);
 
 #endif

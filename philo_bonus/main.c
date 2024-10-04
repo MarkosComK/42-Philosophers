@@ -19,6 +19,7 @@ int	main(int ac, char **av)
 
 	if (check_args(ac, av))
 		return (1);
+	init_philos(&table, philos, av);
 	init_table(&table, philos, av);
 	return (0);
 }
