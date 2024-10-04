@@ -12,13 +12,13 @@ SOURCES_FILES	=	so_long.c \
 SOURCES_DIR		=	sources
 BONUS_DIR		=	bonus
 
-HEADER			=	philo.h
+HEADER			=	philo_bonus.h
 
 SOURCES			=	$(wildcard *.c)
 
 OBJECTS			= $(SOURCES:.c=.o)
 
-NAME			=	philo
+NAME			=	philo_bonus
 
 CC				=	cc
 RM				=	rm -f

@@ -12,26 +12,29 @@
 
 #include "philo_bonus.h"
 
-void	prepare_table(t_philos *philos, t_table *table, char **av)
+void	init_table(t_table *table, t_philos *philos, char **av)
 {
 	size_t	i;
-
-	table->philos = philos;
-	pthread_mutex_init(&table->mutex, NULL);
-	table->deadtex = (pthread_mutex_t *) malloc(sizeof(pthread_mutex_t));
-	pthread_mutex_init(table->deadtex, NULL);
-	table->eatentex = (pthread_mutex_t *) malloc(sizeof(pthread_mutex_t));
-	pthread_mutex_init(table->eatentex, NULL);
+	pid_t	pid;
+	
+	(void) philos;
 	i = 0;
-	table->forks = (pthread_mutex_t *) malloc(sizeof(pthread_mutex_t) * ft_atoi(av[1]));
-	while (i < (size_t)ft_atoi(av[1]))
+	table->num_philos = ft_atoi(av[1]);
+	while (i < table->num_philos)
 	{
-		pthread_mutex_init(&table->forks[i], NULL);
+		pid = fork();
+		if (pid == -1)
+		{
+			printf(RED "Error while forking\n" DEFAULT);
+			exit(1);
+		}
+		else if (pid == 0)
+		{
+			printf(GREEN "Child process %zi created with pid: %i\n" DEFAULT, i + 1, getpid());
+			sleep(1);
+			exit(0);
+		}
 		i++;
 	}
-	table->dead_flag = 0;
-	if (av[5])
-		table->num_of_meals = ft_atoi(av[5]);
-	else
-		table->num_of_meals = -1;
+	waitpid(-1, 0, 0);
 }

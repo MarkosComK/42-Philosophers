@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <sys/time.h>
+# include <sys/wait.h>
 # include <stdlib.h>
 
 # define MAX_PHILOS 200
@@ -24,7 +25,6 @@
 typedef struct s_philos
 {
 	int				id;
-	size_t			num_philos;
 	size_t			time_die;
 	size_t			time_eat;
 	size_t			time_sleep;
@@ -37,6 +37,7 @@ typedef struct s_philos
 
 typedef struct s_table
 {
+	size_t			num_philos;
 	pthread_t		table;
 	t_philos		*philos;
 	int				num_of_meals;
@@ -49,5 +50,7 @@ int		check_args(int ac, char **av);
 size_t	ft_strlen(char *str);
 int		ft_atoi(char *str);
 int		ft_isnum(char *str);
+//init.c
+void	init_table(t_table *table, t_philos *philos, char **av);
 
 #endif

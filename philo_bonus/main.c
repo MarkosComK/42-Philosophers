@@ -15,7 +15,7 @@
 int	main(int ac, char **av)
 {
 	t_table		table;
-	//t_philos	philos[MAX_PHILOS];
+	t_philos	philos[MAX_PHILOS];
 
 	if (check_args(ac, av))
 		return (1);
