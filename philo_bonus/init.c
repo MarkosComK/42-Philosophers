@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 19:31:02 by marsoare          #+#    #+#             */
-/*   Updated: 2024/10/04 17:30:46 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/10/04 17:48:06 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	init_table(t_table *table, t_philos *philos, char **av)
 
 	table->num_philos = ft_atoi(av[1]);
 	table->philos = philos;
+	sem_unlink("forks");
 	table->forks = sem_open("forks", O_CREAT, 0644, table->num_philos);
 	i = 0;
 	table->dead_flag = 0;
