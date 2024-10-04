@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 09:31:42 by marsoare          #+#    #+#             */
-/*   Updated: 2024/10/04 16:39:29 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/10/04 17:29:41 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include <sys/wait.h>
 # include <stdlib.h>
 # include <pthread.h>
+# include <semaphore.h>
+# include <fcntl.h>
 
 # define MAX_PHILOS 200
 
@@ -42,10 +44,10 @@ typedef struct s_philos
 typedef struct s_table
 {
 	size_t			num_philos;
-	pthread_t		table;
 	t_philos		*philos;
-	int				num_of_meals;
+	sem_t			*forks;
 	unsigned long	time;
+	int				num_of_meals;
 	int				dead_flag;
 }				t_table;
 
@@ -60,11 +62,16 @@ void	start_dinner(t_table *table, t_philos *philos, char **av);
 int		ft_usleep(size_t milliseconds);
 size_t	get_current_time(void);
 //init.c
+void	init_table(t_table *table, t_philos *philos, char **av);
 void	init_philos(t_table *table, t_philos *philos, char **av);
 void	philos_input_data(t_philos *philos, char **av);
 //routine.c
 void	*routine(void *arg);
+void	eat(t_philos *philo);
+void	rivotril(t_philos *philo);
+void	sophos(t_philos *philo);
 //utils.c
 void	print_philo(t_philos *philo);
+void	thread_printf(t_philos *philo, char *msg);
 
 #endif

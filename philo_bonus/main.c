@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 09:30:56 by marsoare          #+#    #+#             */
-/*   Updated: 2024/10/04 15:43:57 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/10/04 16:52:56 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	main(int ac, char **av)
 
 	if (check_args(ac, av))
 		return (1);
+	init_table(&table, philos, av);
 	init_philos(&table, philos, av);
 	start_dinner(&table, philos, av);
 	return (0);
