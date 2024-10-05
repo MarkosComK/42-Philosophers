@@ -39,9 +39,7 @@ void	print_philo(t_philos *philo)
 
 void	thread_printf(t_philos *philo, char	*msg)
 {
-	//printf("time dif: %zi\n", get_current_time() - philo->table->time);
-	printf("dead-state: %i\n", *philo->dead);
-	printf("last-meal: %zi\n", get_current_time() - philo->last_meal);
+	sem_wait(philo->table->dead);
 	if (*philo->dead == philo->num_philos)
 	{
 		printf(WHITE"%4zi "DEFAULT, get_current_time() - philo->table->time);
@@ -56,4 +54,5 @@ void	thread_printf(t_philos *philo, char	*msg)
 		else if (ft_strcmp(msg, "died") == 0)
 			printf(RED"%i %9s %14s\n"DEFAULT, philo->id, msg, "☠️");
 	}
+	sem_post(philo->table->dead);
 }
