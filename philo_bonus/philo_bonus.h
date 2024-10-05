@@ -28,6 +28,7 @@
 typedef struct s_philos
 {
 	pthread_t		philo;
+	pthread_t		waiter;
 	pid_t			pid;
 	int				id;
 	int				num_philos;
@@ -75,9 +76,11 @@ void	rivotril(t_philos *philo);
 void	sophos(t_philos *philo);
 //utils.c
 void	print_philo(t_philos *philo);
+void	thread_dead(t_philos *philo, char	*msg);
 void	thread_printf(t_philos *philo, char *msg);
 //waiter.c
 int	philosophers_state(t_philos *philo);
+int	philosopher_dead(t_philos *philo);
 int	philo_dead(t_philos *philo);
 void	*waiter(void *arg);
 

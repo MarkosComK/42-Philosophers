@@ -15,28 +15,40 @@
 void	start_dinner(t_table *table, t_philos *philos, char **av)
 {
 	size_t	i;
-	pid_t	pid;
+	size_t	j;
 	
 	i = 0;
 	table->num_philos = ft_atoi(av[1]);
 	table->time = get_current_time();
 	while (i < table->num_philos)
 	{
-		pid = fork();
-		if (pid == -1)
+		philos[i].pid = fork();
+		if (philos[i].pid == -1)
 		{
 			printf(RED "Error while forking\n" DEFAULT);
 			exit(1);
 		}
-		else if (pid == 0)
+		else if (philos[i].pid == 0)
 		{
-			printf(GREEN "Child process %zi created with pid: %i\n" DEFAULT, i + 1, getpid());
-			pthread_create(&philos[i].philo, NULL, routine, &philos[i]);
-			pthread_join(philos[i].philo, NULL);
+			printf(GREEN "Child process %zi created with pid: %i\n" DEFAULT, i + 1, philos[i].pid);
+			routine(&philos[i].philo);
+			sem_wait(table->dead);
 			sleep(1);
 			exit(0);
 		}
 		i++;
 	}
-	waitpid(-1, 0, 0);
+	i = 0;
+	j = 0;
+	while (1)
+	{
+		sem_wait(table->dead);
+		while (j < table->num_philos)
+		{
+			kill(table->philos[j].pid, SIGKILL);
+			j++;
+		}
+		exit(0);
+	}
+	//waitpid(-1, 0, 0);
 }

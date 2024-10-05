@@ -17,20 +17,20 @@ void	*routine(void *arg)
 	t_philos	*philo;
 
 	philo = (t_philos *)arg;
+	printf("sending philo->id %i adress %p\n", philo->id, philo);
+	pthread_create(&philo->waiter, NULL, waiter, philo);
+	pthread_detach(philo->waiter);
 	if (philo->id % 2 == 0)
 		ft_usleep(1);
 	/*
 	if (ft_one_philo(philo))
 		return (arg);
 	*/
-	while (!philosophers_state(philo))
+	while (!philosopher_dead(philo))
 	{
 		eat(philo);
-		philo_dead(philo);
 		rivotril(philo);
-		philo_dead(philo);
 		sophos(philo);
-		philo_dead(philo);
 	}
 	return (arg);
 }
