@@ -50,6 +50,7 @@ typedef struct s_table
 	sem_t			*forks;
 	sem_t			*dead;
 	sem_t			*print;
+	sem_t			*meals;
 	unsigned long	time;
 	int				num_of_meals;
 	int				dead_flag;
