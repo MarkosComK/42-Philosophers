@@ -49,7 +49,7 @@ typedef struct s_table
 	t_philos		*philos;
 	sem_t			*forks;
 	sem_t			*dead;
-	sem_t			*meal;
+	sem_t			*print;
 	unsigned long	time;
 	int				num_of_meals;
 	int				dead_flag;

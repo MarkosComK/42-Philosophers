@@ -30,7 +30,6 @@ void	start_dinner(t_table *table, t_philos *philos, char **av)
 		}
 		else if (philos[i].pid == 0)
 		{
-			printf(GREEN "Child process %zi created with pid: %i\n" DEFAULT, i + 1, philos[i].pid);
 			routine(&philos[i].philo);
 			sem_wait(table->dead);
 			sleep(1);
@@ -48,6 +47,9 @@ void	start_dinner(t_table *table, t_philos *philos, char **av)
 			kill(table->philos[j].pid, SIGKILL);
 			j++;
 		}
+		sem_close(table->dead);
+		sem_close(table->forks);
+		sem_close(table->print);
 		exit(0);
 	}
 	//waitpid(-1, 0, 0);

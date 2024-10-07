@@ -17,7 +17,6 @@ void	*routine(void *arg)
 	t_philos	*philo;
 
 	philo = (t_philos *)arg;
-	printf("sending philo->id %i adress %p\n", philo->id, philo);
 	pthread_create(&philo->waiter, NULL, waiter, philo);
 	pthread_detach(philo->waiter);
 	if (philo->id % 2 == 0)

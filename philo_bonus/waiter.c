@@ -38,8 +38,10 @@ int	philo_dead(t_philos *philo)
 {
 	if (philosopher_dead(philo))
 	{
-		thread_dead(philo, "died");
 		sem_post(philo->table->dead);
+		sem_post(philo->table->meal);
+		*philo->dead = 1;
+		thread_dead(philo, "died");
 		return (1);
 	}
 	return (0);
