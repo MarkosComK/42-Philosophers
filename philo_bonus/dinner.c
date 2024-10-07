@@ -41,16 +41,39 @@ void	start_dinner(t_table *table, t_philos *philos, char **av)
 	j = 0;
 	while (1)
 	{
-		sem_wait(table->dead);
-		while (j < table->num_philos)
+		if (table->num_of_meals != -1)
 		{
-			kill(table->philos[j].pid, SIGKILL);
-			j++;
+			while (j < table->num_philos)
+			{
+				sem_wait(table->meals);
+				j++;
+			}
+			j = 0;
+			while (j < table->num_philos)
+			{
+				kill(table->philos[j].pid, SIGKILL);
+				j++;
+			}
+			sem_close(table->dead);
+			sem_close(table->forks);
+			sem_close(table->print);
+			sem_close(table->meals);
+			exit(0);
 		}
-		sem_close(table->dead);
-		sem_close(table->forks);
-		sem_close(table->print);
-		exit(0);
+		else
+		{
+			sem_wait(table->dead);
+			while (j < table->num_philos)
+			{
+				kill(table->philos[j].pid, SIGKILL);
+				j++;
+			}
+			sem_close(table->dead);
+			sem_close(table->forks);
+			sem_close(table->print);
+			sem_close(table->meals);
+			exit(0);
+		}
 	}
 	//waitpid(-1, 0, 0);
 }
