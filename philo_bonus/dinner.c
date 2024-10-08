@@ -30,7 +30,6 @@ void	start_dinner(t_table *table, t_philos *philos, char **av)
 		else if (philos[i].pid)
 		{
 			routine(&philos[i].philo);
-			//sem_wait(table->dead);
 			sleep(1);
 			exit(0);
 		}
@@ -55,12 +54,9 @@ void	finish_dinner(t_table *table)
 				sem_wait(table->meals);
 				j++;
 			}
-			j = 0;
-			while (j < table->num_philos)
-			{
+			j = -1;
+			while (++j < table->num_philos)
 				kill(table->philos[j].pid, SIGINT);
-				j++;
-			}
 		}
 		sem_close(table->dead);
 		sem_close(table->forks);
