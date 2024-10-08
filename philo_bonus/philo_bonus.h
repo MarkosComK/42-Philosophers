@@ -62,7 +62,7 @@ int		ft_atoi(char *str);
 int		ft_isnum(char *str);
 //dinner.c
 void	start_dinner(t_table *table, t_philos *philos, char **av);
-void	finish_dinner(t_table *table, t_philos *philos, char **av);
+void	finish_dinner(t_table *table);
 //get_time.c
 int		ft_usleep(size_t milliseconds);
 size_t	get_current_time(void);

@@ -22,6 +22,6 @@ int	main(int ac, char **av)
 	init_table(&table, philos, av);
 	init_philos(&table, philos, av);
 	start_dinner(&table, philos, av);
-	finish_dinner(&table, philos, av);
+	finish_dinner(&table);
 	return (0);
 }
