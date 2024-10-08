@@ -80,9 +80,9 @@ void	print_philo(t_philos *philo);
 void	thread_dead(t_philos *philo, char	*msg);
 void	thread_printf(t_philos *philo, char *msg);
 //waiter.c
-int	philosophers_state(t_philos *philo);
-int	philosopher_dead(t_philos *philo);
-int	philo_dead(t_philos *philo);
+int		philosophers_state(t_philos *philo);
+int		philosopher_dead(t_philos *philo);
+int		philo_dead(t_philos *philo);
 void	*waiter(void *arg);
 
 #endif

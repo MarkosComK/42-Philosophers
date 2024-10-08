@@ -41,7 +41,6 @@ void	*routine(void *arg)
 
 void	eat(t_philos *philo)
 {
-	//printf("time dif: %zi\n", get_current_time() - philo->table->time);
 	sem_wait(philo->table->forks);
 	thread_printf(philo, "has taken a fork");
 	sem_wait(philo->table->forks);

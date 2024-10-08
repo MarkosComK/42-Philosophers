@@ -45,17 +45,15 @@ void	thread_dead(t_philos *philo, char	*msg)
 
 void	thread_printf(t_philos *philo, char	*msg)
 {
-	//sem_wait(philo->table->print);
-		printf(WHITE"%4zi "DEFAULT, get_current_time() - philo->table->time);
-		if (ft_strcmp(msg, "has taken a fork") == 0)
-			printf(BOLD"%i "GREEN"%s %8s\n"DEFAULT, philo->id, msg, "🍽️");
-		else if (ft_strcmp(msg, "is eating") == 0)
-			printf(BOLD"%i "BLUE"%12s %9s\n"DEFAULT, philo->id, msg, "🥘");
-		else if (ft_strcmp(msg, "is sleeping") == 0)
-			printf(BOLD"%i "GRAY"%13s %8s\n"DEFAULT, philo->id, msg, "💤");
-		else if (ft_strcmp(msg, "is thinking") == 0)
-			printf(BOLD"%i "MAGENTA"%13s %8s\n"DEFAULT, philo->id, msg, "🤔");
-		else if (ft_strcmp(msg, "died") == 0)
-			printf(RED"%i %9s %14s\n"DEFAULT, philo->id, msg, "☠️");
-	//sem_post(philo->table->print);
+	printf(WHITE"%4zi "DEFAULT, get_current_time() - philo->table->time);
+	if (ft_strcmp(msg, "has taken a fork") == 0)
+		printf(BOLD"%i "GREEN"%s %8s\n"DEFAULT, philo->id, msg, "🍽️");
+	else if (ft_strcmp(msg, "is eating") == 0)
+		printf(BOLD"%i "BLUE"%12s %9s\n"DEFAULT, philo->id, msg, "🥘");
+	else if (ft_strcmp(msg, "is sleeping") == 0)
+		printf(BOLD"%i "GRAY"%13s %8s\n"DEFAULT, philo->id, msg, "💤");
+	else if (ft_strcmp(msg, "is thinking") == 0)
+		printf(BOLD"%i "MAGENTA"%13s %8s\n"DEFAULT, philo->id, msg, "🤔");
+	else if (ft_strcmp(msg, "died") == 0)
+		printf(RED"%i %9s %14s\n"DEFAULT, philo->id, msg, "☠️");
 }
