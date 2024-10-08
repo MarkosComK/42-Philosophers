@@ -28,8 +28,10 @@ void	*routine(void *arg)
 	while (!philosopher_dead(philo))
 	{
 		eat(philo);
+		/*
 		if (philo->eaten == philo->table->num_of_meals)
 			sem_post(philo->table->meals);
+		*/
 		rivotril(philo);
 		sophos(philo);
 	}

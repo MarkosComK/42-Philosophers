@@ -46,9 +46,7 @@ void	thread_dead(t_philos *philo, char	*msg)
 
 void	thread_printf(t_philos *philo, char	*msg)
 {
-	sem_wait(philo->table->print);
-	if (*philo->dead)
-	{
+	//sem_wait(philo->table->print);
 		printf(WHITE"%4zi "DEFAULT, get_current_time() - philo->table->time);
 		if (ft_strcmp(msg, "has taken a fork") == 0)
 			printf(BOLD"%i "GREEN"%s %8s\n"DEFAULT, philo->id, msg, "🍽️");
@@ -60,6 +58,5 @@ void	thread_printf(t_philos *philo, char	*msg)
 			printf(BOLD"%i "MAGENTA"%13s %8s\n"DEFAULT, philo->id, msg, "🤔");
 		else if (ft_strcmp(msg, "died") == 0)
 			printf(RED"%i %9s %14s\n"DEFAULT, philo->id, msg, "☠️");
-	}
-	sem_post(philo->table->print);
+	//sem_post(philo->table->print);
 }

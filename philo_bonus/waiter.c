@@ -39,7 +39,7 @@ int	philo_dead(t_philos *philo)
 	if (philosopher_dead(philo))
 	{
 		sem_post(philo->table->dead);
-		sem_post(philo->table->print);
+		//sem_post(philo->table->print);
 		*philo->dead = 1;
 		thread_dead(philo, "died");
 		return (1);
