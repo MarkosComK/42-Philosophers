@@ -15,7 +15,7 @@
 //IDK why i have those next 2 functions but i'll not toutch them
 int	philosophers_state(t_philos *philo)
 {
-	if (*philo->dead < philo->num_philos)
+	if (philo->dead < philo->num_philos)
 		return (1);
 	return (0);
 }
@@ -34,17 +34,26 @@ int	philo_exist(t_philos *philo)
 	return (0);
 }
 
+void	send_death(t_philos *philos)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < philos->table->num_philos)
+	{
+		sem_post(philos->table->dead);
+		i++;
+	}
+}
+
 int	philo_dead(t_philos *philo)
 {
 	if (philosopher_dead(philo))
 	{
-		sem_post(philo->table->dead);
-		*philo->dead = 1;
+		philo->dead = 1;
 		sem_post(philo->table->print);
 		thread_dead(philo, "died");
-		sem_wait(philo->table->print);
-		philo->table->p_flag--;
-		sem_post(philo->table->print);
+		send_death(philo);
 		return (1);
 	}
 	return (0);

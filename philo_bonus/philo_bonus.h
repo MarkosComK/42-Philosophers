@@ -38,7 +38,7 @@ typedef struct s_philos
 	size_t			last_meal;
 	int				sleep;
 	int				eaten;
-	int				*dead;
+	int				dead;
 	struct s_table	*table;
 }				t_philos;
 

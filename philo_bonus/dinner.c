@@ -58,6 +58,17 @@ void	finish_dinner(t_table *table)
 			while (++j < table->num_philos)
 				kill(table->philos[j].pid, SIGINT);
 		}
+		else
+		{
+			while (j < table->num_philos)
+			{
+				sem_wait(table->dead);
+				j++;
+			}
+			j = -1;
+			while (++j < table->num_philos)
+				kill(table->philos[j].pid, SIGINT);
+		}
 		sem_close(table->dead);
 		sem_close(table->forks);
 		sem_close(table->print);

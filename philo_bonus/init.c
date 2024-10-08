@@ -20,7 +20,7 @@ void	init_table(t_table *table, t_philos *philos, char **av)
 	sem_unlink("forks");
 	table->forks = sem_open("forks", O_CREAT, 0644, table->num_philos);
 	sem_unlink("dead");
-	table->dead = sem_open("dead", O_CREAT, 0644, 0);
+	table->dead = sem_open("dead", O_CREAT, 0644, 1);
 	sem_unlink("meals");
 	table->meals = sem_open("meals", O_CREAT, 0644, 0);
 	sem_unlink("print");
@@ -55,6 +55,6 @@ void	philos_input_data(t_philos *philos, char **av)
 	philos->time_sleep = ft_atoi(av[4]);
 	philos->last_meal = get_current_time();
 	philos->sleep = 0;
-	philos->dead = &philos->table->dead_flag;
+	philos->dead = 0;
 	philos->eaten = 0;
 }
