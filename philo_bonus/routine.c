@@ -18,7 +18,6 @@ void	*routine(void *arg)
 
 	philo = (t_philos *)arg;
 	pthread_create(&philo->waiter, NULL, waiter, philo);
-	pthread_detach(philo->waiter);
 	if (philo->id % 2 == 0)
 		ft_usleep(1);
 	while (!philosopher_dead(philo))
@@ -32,6 +31,11 @@ void	*routine(void *arg)
 		rivotril(philo);
 		sophos(philo);
 	}
+	sem_close(philo->table->dead);
+	sem_close(philo->table->forks);
+	sem_close(philo->table->meals);
+	sem_close(philo->table->print);
+	pthread_join(philo->waiter, NULL);
 	return (arg);
 }
 

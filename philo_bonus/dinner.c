@@ -30,7 +30,7 @@ void	start_dinner(t_table *table, t_philos *philos, char **av)
 		else if (philos[i].pid)
 		{
 			routine(&philos[i].philo);
-			sem_wait(table->dead);
+			//sem_wait(table->dead);
 			sleep(1);
 			exit(0);
 		}
