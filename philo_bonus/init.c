@@ -12,6 +12,7 @@
 
 #include "philo_bonus.h"
 
+//IDK if dead_flag is being used, but its working
 void	init_table(t_table *table, t_philos *philos, char **av)
 {
 	table->num_philos = ft_atoi(av[1]);

@@ -64,6 +64,8 @@ void	finish_dinner(t_table *table)
 		}
 		sem_close(table->dead);
 		sem_close(table->forks);
+		sem_close(table->print);
+		sem_close(table->meals);
 		exit(0);
 	}
 }

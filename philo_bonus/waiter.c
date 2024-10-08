@@ -13,6 +13,7 @@
 
 #include "philo_bonus.h"
 
+//IDK why i have those next 2 functions but i'll not toutch them
 int	philosophers_state(t_philos *philo)
 {
 	if (*philo->dead < philo->num_philos)
