@@ -20,6 +20,8 @@ void	init_table(t_table *table, t_philos *philos, char **av)
 	table->forks = sem_open("forks", O_CREAT, 0644, table->num_philos);
 	sem_unlink("dead");
 	table->dead = sem_open("dead", O_CREAT, 0644, 0);
+	sem_unlink("meals");
+	table->meals = sem_open("meals", O_CREAT, 0644, 0);
 	table->dead_flag = table->num_philos;
 	if (av[5])
 		table->num_of_meals = ft_atoi(av[5]);
@@ -50,6 +52,5 @@ void	philos_input_data(t_philos *philos, char **av)
 	philos->last_meal = get_current_time();
 	philos->sleep = 0;
 	philos->dead = &philos->table->dead_flag;
-	sem_unlink("meals");
-	philos->meals = sem_open("meals", O_CREAT, 0644, 0);
+	philos->eaten = 0;
 }

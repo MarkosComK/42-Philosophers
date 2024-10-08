@@ -41,7 +41,6 @@ void	start_dinner(t_table *table, t_philos *philos, char **av)
 	j = 0;
 	while (1)
 	{
-		/*
 		if (table->num_of_meals != -1)
 		{
 			while (j < table->num_philos)
@@ -57,11 +56,8 @@ void	start_dinner(t_table *table, t_philos *philos, char **av)
 			}
 			sem_close(table->dead);
 			sem_close(table->forks);
-			sem_close(table->print);
-			sem_close(table->meals);
 			exit(0);
 		}
-		*/
 		sem_wait(table->dead);
 		while (j < table->num_philos)
 		{

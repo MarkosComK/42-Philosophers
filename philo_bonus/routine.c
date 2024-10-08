@@ -28,10 +28,11 @@ void	*routine(void *arg)
 	while (!philosopher_dead(philo))
 	{
 		eat(philo);
-		/*
 		if (philo->eaten == philo->table->num_of_meals)
+		{
 			sem_post(philo->table->meals);
-		*/
+			break ;
+		}
 		rivotril(philo);
 		sophos(philo);
 	}
@@ -48,7 +49,7 @@ void	eat(t_philos *philo)
 	thread_printf(philo, "is eating");
 	philo->last_meal = get_current_time();
 	ft_usleep(philo->time_eat);
-	sem_post(philo->meals);
+	philo->eaten++;
 	sem_post(philo->table->forks);
 	sem_post(philo->table->forks);
 }
