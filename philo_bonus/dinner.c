@@ -70,8 +70,6 @@ void	start_dinner(t_table *table, t_philos *philos, char **av)
 		}
 		sem_close(table->dead);
 		sem_close(table->forks);
-		sem_close(table->print);
-		sem_close(table->meals);
 		exit(0);
 	}
 	//waitpid(-1, 0, 0);

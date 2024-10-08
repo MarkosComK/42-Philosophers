@@ -51,5 +51,5 @@ void	philos_input_data(t_philos *philos, char **av)
 	philos->sleep = 0;
 	philos->dead = &philos->table->dead_flag;
 	sem_unlink("meals");
-	philos->meals= sem_open("meals", O_CREAT, 0644, 0);
+	philos->meals = sem_open("meals", O_CREAT, 0644, 0);
 }

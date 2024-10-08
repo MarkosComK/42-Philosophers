@@ -48,7 +48,7 @@ void	eat(t_philos *philo)
 	thread_printf(philo, "is eating");
 	philo->last_meal = get_current_time();
 	ft_usleep(philo->time_eat);
-	philo->eaten++;
+	sem_post(philo->meals);
 	sem_post(philo->table->forks);
 	sem_post(philo->table->forks);
 }
