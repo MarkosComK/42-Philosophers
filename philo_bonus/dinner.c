@@ -15,7 +15,6 @@
 void	start_dinner(t_table *table, t_philos *philos, char **av)
 {
 	size_t	i;
-	size_t	j;
 	
 	i = 0;
 	table->num_philos = ft_atoi(av[1]);
@@ -37,6 +36,16 @@ void	start_dinner(t_table *table, t_philos *philos, char **av)
 		}
 		i++;
 	}
+	//waitpid(-1, 0, 0);
+}
+
+void	finish_dinner(t_table *table, t_philos *philos, char **av)
+{
+	size_t	i;
+	size_t	j;
+	(void) av;
+	(void) philos;
+
 	i = 0;
 	j = 0;
 	while (1)
@@ -58,15 +67,11 @@ void	start_dinner(t_table *table, t_philos *philos, char **av)
 			sem_close(table->forks);
 			exit(0);
 		}
-		sem_wait(table->dead);
-		while (j < table->num_philos)
+		else
 		{
-			kill(table->philos[j].pid, SIGKILL);
-			j++;
+			sem_close(table->dead);
+			sem_close(table->forks);
+			exit(0);
 		}
-		sem_close(table->dead);
-		sem_close(table->forks);
-		exit(0);
 	}
-	//waitpid(-1, 0, 0);
 }

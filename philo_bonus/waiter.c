@@ -78,7 +78,13 @@ void	*waiter(void *arg)
 
 	philo = (t_philos *)arg;
 	while (1)
+	{
 		if (philo_dead(philo) /*|| check_eaten(philos)*/)
+		{
+			kill(philo->pid, SIGINT);
 			break ;
+		}
+	}
+	exit (0);
 	return (arg);
 }
