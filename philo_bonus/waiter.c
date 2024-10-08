@@ -41,6 +41,7 @@ int	philo_dead(t_philos *philo)
 	{
 		sem_post(philo->table->dead);
 		*philo->dead = 1;
+		sem_post(philo->table->print);
 		thread_dead(philo, "died");
 		sem_wait(philo->table->print);
 		philo->table->p_flag--;
