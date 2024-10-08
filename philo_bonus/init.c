@@ -22,6 +22,9 @@ void	init_table(t_table *table, t_philos *philos, char **av)
 	table->dead = sem_open("dead", O_CREAT, 0644, 0);
 	sem_unlink("meals");
 	table->meals = sem_open("meals", O_CREAT, 0644, 0);
+	sem_unlink("print");
+	table->print = sem_open("print", O_CREAT, 0644, 1);
+	table->p_flag = 1;
 	table->dead_flag = table->num_philos;
 	if (av[5])
 		table->num_of_meals = ft_atoi(av[5]);

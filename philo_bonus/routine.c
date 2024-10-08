@@ -21,10 +21,6 @@ void	*routine(void *arg)
 	pthread_detach(philo->waiter);
 	if (philo->id % 2 == 0)
 		ft_usleep(1);
-	/*
-	if (ft_one_philo(philo))
-		return (arg);
-	*/
 	while (!philosopher_dead(philo))
 	{
 		eat(philo);

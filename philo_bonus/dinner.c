@@ -27,7 +27,7 @@ void	start_dinner(t_table *table, t_philos *philos, char **av)
 			printf(RED "Error while forking\n" DEFAULT);
 			exit(1);
 		}
-		else if (philos[i].pid == 0)
+		else if (philos[i].pid)
 		{
 			routine(&philos[i].philo);
 			sem_wait(table->dead);
@@ -36,6 +36,7 @@ void	start_dinner(t_table *table, t_philos *philos, char **av)
 		}
 		i++;
 	}
+	waitpid(-1, NULL, 0);
 }
 
 void	finish_dinner(t_table *table)
@@ -57,7 +58,7 @@ void	finish_dinner(t_table *table)
 			j = 0;
 			while (j < table->num_philos)
 			{
-				kill(table->philos[j].pid, SIGKILL);
+				kill(table->philos[j].pid, SIGINT);
 				j++;
 			}
 		}
