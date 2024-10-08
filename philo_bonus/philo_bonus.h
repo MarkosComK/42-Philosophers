@@ -27,7 +27,6 @@
 
 typedef struct s_philos
 {
-	pthread_t		philo;
 	pthread_t		waiter;
 	pid_t			pid;
 	int				id;
@@ -38,20 +37,17 @@ typedef struct s_philos
 	size_t			last_meal;
 	int				sleep;
 	int				eaten;
-	int				dead;
+	int				alive;
 	struct s_table	*table;
 }				t_philos;
 
 typedef struct s_table
 {
-	pthread_t		table;
-	size_t			num_philos;
 	t_philos		*philos;
+	size_t			num_philos;
 	sem_t			*forks;
-	sem_t			*dead;
-	sem_t			*meals;
-	sem_t			*print;
-	int				p_flag;
+	sem_t			*waiter;
+	sem_t			*finish;
 	unsigned long	time;
 	int				num_of_meals;
 	int				dead_flag;
@@ -63,14 +59,14 @@ size_t	ft_strlen(char *str);
 int		ft_atoi(char *str);
 int		ft_isnum(char *str);
 //dinner.c
-void	start_dinner(t_table *table, t_philos *philos, char **av);
+void	start_dinner(t_table *table, char **av);
 void	finish_dinner(t_table *table);
 //get_time.c
 int		ft_usleep(size_t milliseconds);
 size_t	get_current_time(void);
 //init.c
-void	init_table(t_table *table, t_philos *philos, char **av);
-void	init_philos(t_table *table, t_philos *philos, char **av);
+t_table	*init_table(char **av);
+void	init_philos(t_table *table, t_philos *philos, char **av, int i);
 void	philos_input_data(t_philos *philos, char **av);
 //routine.c
 void	*routine(void *arg);
@@ -81,6 +77,7 @@ void	sophos(t_philos *philo);
 void	print_philo(t_philos *philo);
 void	thread_dead(t_philos *philo, char	*msg);
 void	thread_printf(t_philos *philo, char *msg);
+void	free_table(t_table *table);
 //waiter.c
 int		philosophers_state(t_philos *philo);
 int		philosopher_dead(t_philos *philo);

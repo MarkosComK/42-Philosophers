@@ -12,7 +12,7 @@
 
 #include "philo_bonus.h"
 
-void	start_dinner(t_table *table, t_philos *philos, char **av)
+void	start_dinner(t_table *table, char **av)
 {
 	size_t	i;
 
@@ -21,58 +21,47 @@ void	start_dinner(t_table *table, t_philos *philos, char **av)
 	table->time = get_current_time();
 	while (i < table->num_philos)
 	{
-		philos[i].pid = fork();
-		if (philos[i].pid == -1)
+		table->philos[i].pid = fork();
+		if (table->philos[i].pid == -1)
 		{
 			printf(RED "Error while forking\n" DEFAULT);
 			exit(1);
 		}
-		else if (philos[i].pid)
+		else if (table->philos[i].pid)
 		{
-			routine(&philos[i].philo);
-			sleep(1);
-			exit(0);
+			routine(&table->philos[i]);
 		}
 		i++;
 	}
-	waitpid(-1, NULL, 0);
+	finish_dinner(table);
+	i = 0;
+	int	status;
+	while (i < table->num_philos)
+	{
+		waitpid(table->philos[i].pid, &status, 0);
+		i++;
+	}
+	free(table->philos);
+	free_table(table);
+	sem_unlink("forks");
+	sem_unlink("finish");
+	sem_unlink("waiter");
 }
 
 void	finish_dinner(t_table *table)
 {
 	size_t	i;
-	size_t	j;
 
 	i = 0;
-	j = 0;
-	while (1)
+	while (i < table->num_philos)
 	{
-		if (table->num_of_meals != -1)
-		{
-			while (j < table->num_philos)
-			{
-				sem_wait(table->meals);
-				j++;
-			}
-			j = -1;
-			while (++j < table->num_philos)
-				kill(table->philos[j].pid, SIGINT);
-		}
-		else
-		{
-			while (j < table->num_philos)
-			{
-				sem_wait(table->dead);
-				j++;
-			}
-			j = -1;
-			while (++j < table->num_philos)
-				kill(table->philos[j].pid, SIGINT);
-		}
-		sem_close(table->dead);
-		sem_close(table->forks);
-		sem_close(table->print);
-		sem_close(table->meals);
-		exit(0);
+		sem_wait(table->finish);
+		i++;
+	}
+	i = 0;
+	while (i < table->num_philos)
+	{
+		kill(table->philos[i].pid, SIGTERM);
+		i++;
 	}
 }

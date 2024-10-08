@@ -14,14 +14,19 @@
 
 int	main(int ac, char **av)
 {
-	t_table		table;
-	t_philos	philos[MAX_PHILOS];
+	t_table	*table;
+	size_t	i;
 
 	if (check_args(ac, av))
 		return (1);
-	init_table(&table, philos, av);
-	init_philos(&table, philos, av);
-	start_dinner(&table, philos, av);
-	finish_dinner(&table);
+	table = init_table(av);
+	i = 0;
+	while (i < (size_t)ft_atoi(av[1]))
+	{
+		init_philos(table, &table->philos[i], av, i);
+		i++;
+	}
+	start_dinner(table, av);
+	finish_dinner(table);
 	return (0);
 }

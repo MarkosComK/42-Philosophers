@@ -22,10 +22,6 @@ int	ft_one_philo(t_philos *philo)
 		sem_post(philo->table->forks);
 		ft_usleep(philo->time_die);
 		thread_printf(philo, "died");
-		sem_close(philo->table->dead);
-		sem_close(philo->table->forks);
-		sem_close(philo->table->meals);
-		sem_close(philo->table->print);
 		pthread_join(philo->waiter, NULL);
 		return (0);
 	}
@@ -37,7 +33,7 @@ void	*routine(void *arg)
 	t_philos	*philo;
 
 	philo = (t_philos *)arg;
-	pthread_create(&philo->waiter, NULL, waiter, philo);
+	pthread_create(&philo->waiter, NULL, &waiter, philo);
 	if (philo->id % 2 == 0)
 		ft_usleep(1);
 	if (ft_one_philo(philo))
@@ -47,17 +43,12 @@ void	*routine(void *arg)
 		eat(philo);
 		if (philo->eaten == philo->table->num_of_meals)
 		{
-			sem_post(philo->table->meals);
+			sem_post(philo->table->finish);
 			break ;
 		}
 		rivotril(philo);
 		sophos(philo);
 	}
-	sem_close(philo->table->dead);
-	sem_close(philo->table->forks);
-	sem_close(philo->table->meals);
-	sem_close(philo->table->print);
-	pthread_join(philo->waiter, NULL);
 	return (arg);
 }
 

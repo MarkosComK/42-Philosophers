@@ -15,7 +15,7 @@
 //IDK why i have those next 2 functions but i'll not toutch them
 int	philosophers_state(t_philos *philo)
 {
-	if (philo->dead < philo->num_philos)
+	if (philo->alive < philo->num_philos)
 		return (1);
 	return (0);
 }
@@ -27,13 +27,6 @@ int	philosopher_dead(t_philos *philo)
 	return (0);
 }
 
-int	philo_exist(t_philos *philo)
-{
-	if (philo->philo)
-		return (1);
-	return (0);
-}
-
 void	send_death(t_philos *philos)
 {
 	size_t	i;
@@ -41,22 +34,11 @@ void	send_death(t_philos *philos)
 	i = 0;
 	while (i < philos->table->num_philos)
 	{
-		sem_post(philos->table->dead);
+		sem_post(philos->table->finish);
 		i++;
 	}
-}
-
-int	philo_dead(t_philos *philo)
-{
-	if (philosopher_dead(philo))
-	{
-		philo->dead = 1;
-		sem_post(philo->table->print);
-		thread_dead(philo, "died");
-		send_death(philo);
-		return (1);
-	}
-	return (0);
+	free_table(philos->table);
+	exit (0);
 }
 
 void	*waiter(void *arg)
@@ -66,8 +48,17 @@ void	*waiter(void *arg)
 	philo = (t_philos *)arg;
 	while (1)
 	{
-		if (philo_dead(philo))
+		sem_wait(philo->table->waiter);
+		if (get_current_time() - philo->last_meal > philo->time_die && philo->alive)
+		{
+			philo->alive = 0;
+			sem_post(philo->table->waiter);
+			thread_dead(philo, "died");
+			send_death(philo);
 			break ;
+		}
+		sem_post(philo->table->waiter);
+		ft_usleep(500);
 	}
-	return (arg);
+	return (NULL);
 }
