@@ -12,6 +12,26 @@
 
 #include "philo_bonus.h"
 
+int	ft_one_philo(t_philos *philo)
+{
+	ft_usleep(1);
+	if (philo->num_philos == 1)
+	{
+		sem_wait(philo->table->forks);
+		thread_printf(philo, "has taken a fork");
+		sem_post(philo->table->forks);
+		ft_usleep(philo->time_die);
+		thread_printf(philo, "died");
+		sem_close(philo->table->dead);
+		sem_close(philo->table->forks);
+		sem_close(philo->table->meals);
+		sem_close(philo->table->print);
+		pthread_join(philo->waiter, NULL);
+		return (0);
+	}
+	return (0);
+}
+
 void	*routine(void *arg)
 {
 	t_philos	*philo;
@@ -20,6 +40,8 @@ void	*routine(void *arg)
 	pthread_create(&philo->waiter, NULL, waiter, philo);
 	if (philo->id % 2 == 0)
 		ft_usleep(1);
+	if (ft_one_philo(philo))
+		return (arg);
 	while (!philosopher_dead(philo))
 	{
 		eat(philo);
