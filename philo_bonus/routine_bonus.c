@@ -41,7 +41,7 @@ void	eating(t_philos *philos)
 	sem_wait(philos->table->waiter);
 	philos->last_meal_time = get_current_time();
 	sem_post(philos->table->waiter);
-	ft_wait(philos, philos->eat_time);
+	ft_usleep(philos->eat_time);
 	if (!is_alive(philos, 2))
 		return ;
 	sem_wait(philos->table->waiter);
@@ -54,7 +54,7 @@ void	eating(t_philos *philos)
 void	sleeping(t_philos *philos)
 {
 	thread_printf(philos, "is sleeping");
-	ft_wait(philos, philos->sleep_time);
+	ft_usleep(philos->sleep_time);
 }
 
 void	thinking(t_philos *philos)
