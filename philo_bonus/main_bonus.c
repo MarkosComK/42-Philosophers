@@ -12,20 +12,6 @@
 
 #include "philo_bonus.h"
 
-void	free_table(t_table *table)
-{
-	if (table)
-	{
-		if (table->forks)
-			sem_close(table->forks);
-		if (table->finish)
-			sem_close(table->finish);
-		if (table->waiter)
-			sem_close(table->waiter);
-		free(table);
-	}
-}
-
 int	main(int argc, char **argv)
 {
 	t_table	*table;

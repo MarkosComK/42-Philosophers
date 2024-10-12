@@ -81,6 +81,7 @@ void	unlink_sem(void);
 void	start_dinner(t_table *table);
 void	kill_processes(t_table *table);
 void	wait_child_processes(t_table *table);
+void	free_table(t_table *table);
 //time_utils.c
 size_t	get_current_time(void);
 size_t	elapsed_time(size_t start_time);

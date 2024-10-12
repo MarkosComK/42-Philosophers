@@ -62,3 +62,17 @@ void	wait_child_processes(t_table *table)
 		i++;
 	}
 }
+
+void	free_table(t_table *table)
+{
+	if (table)
+	{
+		if (table->forks)
+			sem_close(table->forks);
+		if (table->finish)
+			sem_close(table->finish);
+		if (table->waiter)
+			sem_close(table->waiter);
+		free(table);
+	}
+}
