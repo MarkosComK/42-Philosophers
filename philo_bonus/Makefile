@@ -90,7 +90,7 @@ $(NAME): $(OBJECTS) $(HEADER)
 
 clean:
 	@$(RM) $(OBJECTS)
-	     @clear 
+	@clear 
 	@echo 
 	@echo "$(RED)┏┓┓ ┏┓┏┓┳┓┏┓┳┓" 
 	@echo "┃ ┃ ┣ ┣┫┃┃┣ ┃┃" 
