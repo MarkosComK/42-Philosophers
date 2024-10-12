@@ -28,7 +28,6 @@ void	free_table(t_table *table)
 
 int	main(int argc, char **argv)
 {
-	int		i;
 	t_table	*table;
 
 	if (!check_args(argc, argv))
@@ -36,7 +35,6 @@ int	main(int argc, char **argv)
 	table = init_table(argv);
 	if (!table)
 		return (1);
-	i = 0;
 	start_dinner(table);
 	unlink_sem();
 	return (0);
