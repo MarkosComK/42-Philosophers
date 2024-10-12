@@ -27,7 +27,7 @@ void	start_dinner(t_table *table)
 		i++;
 	}
 	kill_processes(table);
-	wait_child_processes(table);
+	wait_processes(table);
 	free(table->philos);
 	free_table(table);
 }
@@ -50,7 +50,7 @@ void	kill_processes(t_table *table)
 	}
 }
 
-void	wait_child_processes(t_table *table)
+void	wait_processes(t_table *table)
 {
 	int	i;
 	int	status;
