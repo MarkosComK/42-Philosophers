@@ -27,7 +27,7 @@ int	ft_strcmp(char *s1, char *s2)
 void	thread_death(t_philos *philo, char	*msg)
 {
 	printf(WHITE"%4zi "DEFAULT, get_current_time() - philo->table->start_time);
-	printf(RED"%i %9s %14s\n"DEFAULT, philo->id, msg, "☠️");
+	printf(RED"%i %11s %12s\n"DEFAULT, philo->id, msg, "☠️");
 }
 
 void	thread_printf(t_philos *philo, char	*msg)
