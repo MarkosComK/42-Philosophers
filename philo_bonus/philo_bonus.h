@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 15:52:20 by marsoare          #+#    #+#             */
-/*   Updated: 2024/10/12 15:52:21 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/10/12 16:17:46 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,13 @@ typedef struct s_table
 //checkers.c
 int		check_args(int argc, char **argv);
 size_t	ft_strlen(char *str);
-int	ft_atoi(char *str);
-int	ft_isnum(char *str);
+int		ft_atoi(char *str);
+int		ft_isnum(char *str);
 
 //init.c
 t_table	*init_table(char **argv);
 void	init_philos(t_philos *philos, t_table *table, int i, char **argv);
-int	init_sem(t_table *table);
+int		init_sem(t_table *table);
 void	unlink_sem(void);
 //dinner.c
 void	start_dinner(t_table *table);
