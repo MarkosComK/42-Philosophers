@@ -5,63 +5,60 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/04 15:38:12 by marsoare          #+#    #+#             */
-/*   Updated: 2024/10/04 19:11:49 by marsoare         ###   ########.fr       */
+/*   Created: 2024/10/12 14:16:52 by marsoare          #+#    #+#             */
+/*   Updated: 2024/10/12 14:24:51 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_bonus.h"
 
-void	start_dinner(t_table *table, char **av)
+void	start_dinner(t_table *table)
 {
-	size_t	i;
+	int		i;
 
 	i = 0;
-	table->num_philos = ft_atoi(av[1]);
-	table->time = get_current_time();
-	while (i < table->num_philos)
+	while (i < table->philo_count)
 	{
 		table->philos[i].pid = fork();
 		if (table->philos[i].pid == -1)
-		{
-			printf(RED "Error while forking\n" DEFAULT);
-			exit(1);
-		}
-		else if (table->philos[i].pid)
-		{
-			routine(&table->philos[i]);
-		}
+			return ;
+		if (table->philos[i].pid == 0)
+			philo_process(&table->philos[i]);
 		i++;
 	}
-	finish_dinner(table);
-	i = 0;
-	int	status;
-	while (i < table->num_philos)
-	{
-		waitpid(table->philos[i].pid, &status, 0);
-		i++;
-	}
+	kill_processes(table);
+	wait_child_processes(table);
 	free(table->philos);
 	free_table(table);
-	sem_unlink("forks");
-	sem_unlink("finish");
-	sem_unlink("waiter");
 }
 
-void	finish_dinner(t_table *table)
+void	kill_processes(t_table *table)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (i < table->num_philos)
+	while (i < table->philo_count)
 	{
 		sem_wait(table->finish);
 		i++;
 	}
 	i = 0;
-	while (i < table->num_philos)
+	while (i < table->philo_count)
 	{
-		kill(table->philos[i].pid, SIGTERM);
+		kill(table->philos[i].pid, SIGKILL);
+		i++;
+	}
+}
+
+void	wait_child_processes(t_table *table)
+{
+	int	i;
+	int	status;
+
+	i = 0;
+	while (i < table->philo_count)
+	{
+		waitpid(table->philos[i].pid, &status, 0);
 		i++;
 	}
 }
