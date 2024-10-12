@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   time_utils_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariaoli <mariaoli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/18 16:23:03 by mariaoli          #+#    #+#             */
-/*   Updated: 2024/09/24 15:28:59 by mariaoli         ###   ########.fr       */
+/*   Created: 2024/10/12 15:53:17 by marsoare          #+#    #+#             */
+/*   Updated: 2024/10/12 15:53:19 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

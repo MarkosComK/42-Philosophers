@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_args_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariaoli <mariaoli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/16 17:14:59 by mariaoli          #+#    #+#             */
-/*   Updated: 2024/09/24 15:29:10 by mariaoli         ###   ########.fr       */
+/*   Created: 2024/10/12 15:51:42 by marsoare          #+#    #+#             */
+/*   Updated: 2024/10/12 15:51:44 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

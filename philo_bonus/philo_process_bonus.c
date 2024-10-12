@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_process_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariaoli <mariaoli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/25 21:54:13 by marianamora       #+#    #+#             */
-/*   Updated: 2024/10/01 18:25:55 by mariaoli         ###   ########.fr       */
+/*   Created: 2024/10/12 15:52:43 by marsoare          #+#    #+#             */
+/*   Updated: 2024/10/12 15:52:45 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

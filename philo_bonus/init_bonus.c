@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariaoli <mariaoli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/25 21:50:25 by marianamora       #+#    #+#             */
-/*   Updated: 2024/10/01 18:24:31 by mariaoli         ###   ########.fr       */
+/*   Created: 2024/10/12 15:52:05 by marsoare          #+#    #+#             */
+/*   Updated: 2024/10/12 15:52:25 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
