@@ -16,7 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_table	*table;
 
-	if (!check_args(argc, argv))
+	if (check_args(argc, argv))
 		return (1);
 	table = init_table(argv);
 	if (!table)

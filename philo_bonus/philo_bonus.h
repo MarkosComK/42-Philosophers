@@ -37,6 +37,8 @@
 # define MESSAGE_THINK "%zu %d is thinking\n"
 # define MESSAGE_DEATH "%zu %d died\n"
 
+# define MAX_PHILOS 200
+
 # define ALL_CHILD -1
 
 typedef struct s_table	t_table;
@@ -70,7 +72,9 @@ typedef struct s_table
 
 //checkers.c
 int		check_args(int argc, char **argv);
-int		ft_atoi(char *ptr);
+size_t	ft_strlen(char *str);
+int	ft_atoi(char *str);
+int	ft_isnum(char *str);
 
 //init.c
 t_table	*init_table(char **argv);

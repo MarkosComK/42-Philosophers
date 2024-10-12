@@ -12,101 +12,70 @@
 
 #include "philo_bonus.h"
 
-int	ft_atoi(char *ptr)
+int	check_args(int ac, char **av)
+{
+	if (ac < 5 || ac > 6)
+		return (printf(RED"Usage:\n"GREEN"./philo"" 5 500 600 800\n" DEFAULT));
+	if (ft_atoi(av[1]) <= 0 || ft_atoi(av[1]) > MAX_PHILOS)
+		return (printf(RED"Invalid number of philosophers\n"DEFAULT));
+	if (ft_atoi(av[2]) <= 0 || ft_isnum(av[2]))
+		return (printf(RED"Invalid time_to_die\n"DEFAULT));
+	if (ft_atoi(av[3]) <= 0 || ft_isnum(av[3]))
+		return (printf(RED"Invalid time_to_eat\n"DEFAULT));
+	if (ft_atoi(av[4]) <= 0 || ft_isnum(av[4]))
+		return (printf(RED"Invalid time_to_sleep\n"DEFAULT));
+	if (ac == 6 && (ft_atoi(av[5]) <= 0 || ft_isnum(av[5])))
+		return (printf(RED"Invalid eat_times\n"DEFAULT));
+	return (0);
+}
+
+size_t	ft_strlen(char *str)
+{
+	size_t	size;
+
+	size = 0;
+	if (!str)
+		return (-1);
+	while (str[size])
+		size++;
+	return (size);
+}
+
+int	ft_atoi(char *str)
+{
+	int	result;
+	int	i;
+	int	neg;
+
+	result = 0;
+	i = 0;
+	neg = 1;
+	if (!str)
+		return (-1);
+	while (str[i] >= '\t' && str[i] <= '\r' && str[i] == ' ')
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			neg = -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+		result = result * 10 + str[i++] - '0';
+	return (result * neg);
+}
+
+int	ft_isnum(char *str)
 {
 	int	i;
-	int	sign;
-	int	res;
 
 	i = 0;
-	sign = 1;
-	res = 0;
-	while (ptr[i] == 32 || (ptr[i] >= 9 && ptr[i] <= 13))
-		i++;
-	if (ptr[i] == '-' || ptr[i] == '+')
+	if (!str)
+		return (-1);
+	while (str[i])
 	{
-		if (ptr[i] == '-')
-			sign *= -1;
-		i++;
+		if (str[i] < '0' || str[i++] > '9')
+			return (1);
 	}
-	while (ptr[i] != '\0' && (ptr[i] >= 48 && ptr[i] <= 57))
-	{
-		res = res * 10 + (ptr[i] - 48);
-		i++;
-	}
-	return (res * sign);
-}
-
-static int	ft_isdigit(char **argv)
-{
-	int	i;
-	int	j;
-
-	i = 1;
-	while (argv[i])
-	{
-		j = 0;
-		if (argv[i][j] == '-' || argv[i][j] == '+')
-			j++;
-		while (argv[i][j])
-		{
-			if (argv[i][j] < 48 || argv[i][j] > 57)
-				return (0);
-			j++;
-		}
-		i++;
-	}
-	return (1);
-}
-
-static long	ft_atol(char *ptr)
-{
-	int		i;
-	long	sign;
-	long	res;
-
-	i = 0;
-	sign = 1;
-	res = 0;
-	while (ptr[i] == 32 || (ptr[i] >= 9 && ptr[i] <= 13))
-		i++;
-	if (ptr[i] == '-' || ptr[i] == '+')
-	{
-		if (ptr[i] == '-')
-			sign *= -1;
-		i++;
-	}
-	while (ptr[i] != '\0' && (ptr[i] >= 48 && ptr[i] <= 57))
-	{
-		res = res * 10 + (ptr[i] - 48);
-		i++;
-	}
-	return (res * sign);
-}
-
-static int	ft_isint(char **argv)
-{
-	int		i;
-	long	tmp;
-
-	i = 1;
-	while (argv[i])
-	{
-		tmp = ft_atol(argv[i]);
-		if (tmp < 1 || tmp > INT_MAX)
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-int	check_args(int argc, char **argv)
-{
-	if (argc < 5 || argc > 6)
-		return (printf(ERR_ARG_NUM), 0);
-	if (!ft_isdigit(argv))
-		return (printf(ERR_ARG_INT), 0);
-	if (!ft_isint(argv))
-		return (printf(ERR_ARG_LIM), 0);
-	return (1);
+	return (0);
 }
