@@ -88,5 +88,7 @@ void	print_message(t_philos *philos, int c);
 void	ft_wait(t_philos *philos, size_t interval);
 void	free_table(t_table *table);
 void	unlink_sem(void);
+//utils.c
+void	thread_printf(t_philos *philo, char	*msg);
 
 #endif
