@@ -47,10 +47,8 @@
 
 For detailed information, refer to the [subject of the project](https://github.com/user-attachments/files/17247774/en.subject.pdf)
 
-
-	🚀 This project consists of coding basic C functions (see below), which are then compiled
-	into a library for use in other projects of the cursus.
-
+	🚀 This project consists of solving the famous Dijkstra dining problem, which involves
+    the usage of threads, mutexes and, also, processes.
 
 ## 🛠️ Usage
 
