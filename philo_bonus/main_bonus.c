@@ -37,19 +37,7 @@ int	main(int argc, char **argv)
 	if (!table)
 		return (1);
 	i = 0;
-	while (i < table->philo_count)
-	{
-		table->philos[i].pid = fork();
-		if (table->philos[i].pid == -1)
-			return (1);
-		if (table->philos[i].pid == 0)
-			philo_process(&table->philos[i]);
-		i++;
-	}
-	kill_processes(table);
-	wait_child_processes(table);
-	free(table->philos);
-	free_table(table);
+	start_dinner(table);
 	unlink_sem();
 	return (0);
 }
