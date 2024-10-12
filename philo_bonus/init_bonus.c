@@ -31,26 +31,26 @@ static void	init_philos(t_philos *philos, t_table *table, int i, char **argv)
 static int	init_sem(t_table *table)
 {
 	unlink_sem();
-	table->forks_sem = sem_open("forks_sem", O_CREAT, 0644, table->philo_count);
-	if (table->forks_sem == SEM_FAILED)
+	table->forks= sem_open("forks", O_CREAT, 0644, table->philo_count);
+	if (table->forks== SEM_FAILED)
 		return (0);
-	table->stop_sem = sem_open("stop_sem", O_CREAT, 0644, 0);
-	if (table->stop_sem == SEM_FAILED)
+	table->finish = sem_open("finish", O_CREAT, 0644, 0);
+	if (table->finish == SEM_FAILED)
 		return (0);
-	table->monitor_sem = sem_open("monitor_sem", O_CREAT, 0644, 1);
-	if (table->monitor_sem == SEM_FAILED)
+	table->waiter = sem_open("waiter", O_CREAT, 0644, 1);
+	if (table->waiter == SEM_FAILED)
 		return (0);
 	return (1);
 }
 
 void	unlink_sem(void)
 {
-	sem_unlink("forks_sem");
-	sem_unlink("stop_sem");
-	sem_unlink("monitor_sem");
+	sem_unlink("forks");
+	sem_unlink("finish");
+	sem_unlink("waiter");
 }
 
-t_table	*init(char **argv)
+t_table	*init_table(char **argv)
 {
 	t_table	*table;
 	int		i;

@@ -19,13 +19,13 @@ void	ft_wait(t_philos *philos, size_t interval)
 	start = get_time();
 	while ((get_time() - start) < interval)
 	{
-		sem_wait(philos->table->monitor_sem);
+		sem_wait(philos->table->waiter);
 		if (!philos->is_alive)
 		{
-			sem_post(philos->table->monitor_sem);
+			sem_post(philos->table->waiter);
 			break ;
 		}
-		sem_post(philos->table->monitor_sem);
+		sem_post(philos->table->waiter);
 		usleep(100);
 	}
 }
@@ -34,7 +34,7 @@ void	print_message(t_philos *philos, int c)
 {
 	size_t	elapsed;
 
-	sem_wait(philos->table->monitor_sem);
+	sem_wait(philos->table->waiter);
 	if (philos->is_alive)
 	{
 		elapsed = elapsed_time(philos->table->start_time);
@@ -47,5 +47,5 @@ void	print_message(t_philos *philos, int c)
 		if (c == 't')
 			printf(YELLOW MESSAGE_THINK DEFAULT, elapsed, philos->id);
 	}
-	sem_post(philos->table->monitor_sem);
+	sem_post(philos->table->waiter);
 }

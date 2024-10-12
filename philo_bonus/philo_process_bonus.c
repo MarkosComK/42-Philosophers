@@ -19,7 +19,7 @@ void	cleanup_process(t_philos *philos)
 	i = 0;
 	while (i < philos->table->philo_count)
 	{
-		sem_post(philos->table->stop_sem);
+		sem_post(philos->table->finish);
 		i++;
 	}
 	free_table(philos->table);
@@ -35,18 +35,18 @@ void	*monitoring(void *arg)
 	philos = (t_philos *)arg;
 	while (1)
 	{
-		sem_wait(philos->table->monitor_sem);
+		sem_wait(philos->table->waiter);
 		elapsed_meal_time = elapsed_time(philos->last_meal_time);
 		if (elapsed_meal_time > philos->die_time && philos->is_alive)
 		{
 			philos->is_alive = false;
-			sem_post(philos->table->monitor_sem);
+			sem_post(philos->table->waiter);
 			elapsed = elapsed_time(philos->table->start_time);
 			printf(RED MESSAGE_DEATH DEFAULT, elapsed, philos->id);
 			cleanup_process(philos);
 			break ;
 		}
-		sem_post(philos->table->monitor_sem);
+		sem_post(philos->table->waiter);
 		usleep(500);
 	}
 	return (NULL);
@@ -62,7 +62,7 @@ void	philo_process(t_philos *philos)
 	{
 		eating(philos);
 		if (philos->meals_eaten == philos->meals_to_eat)
-			sem_post(philos->table->stop_sem);
+			sem_post(philos->table->finish);
 		sleeping(philos);
 		thinking(philos);
 		usleep(100);

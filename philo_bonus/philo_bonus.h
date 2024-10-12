@@ -62,16 +62,23 @@ typedef struct s_table
 {
 	int			philo_count;
 	size_t		start_time;
-	sem_t		*forks_sem;
-	sem_t		*stop_sem;
-	sem_t		*monitor_sem;
+	sem_t		*forks;
+	sem_t		*finish;
+	sem_t		*waiter;
 	t_philos	*philos;
 }	t_table;
 
+//checkers.c
 int		check_args(int argc, char **argv);
 int		ft_atoi(char *ptr);
-t_table	*init(char **argv);
+
+//init.c
+t_table	*init_table(char **argv);
+//dinner.c
+void	start_dinner(t_table *table);
 size_t	elapsed_time(size_t start_time);
+void	kill_processes(t_table *table);
+void	wait_child_processes(t_table *table);
 size_t	get_time(void);
 void	philo_process(t_philos *philos);
 void	eating(t_philos *philos);

@@ -16,44 +16,13 @@ void	free_table(t_table *table)
 {
 	if (table)
 	{
-		if (table->forks_sem)
-			sem_close(table->forks_sem);
-		if (table->stop_sem)
-			sem_close(table->stop_sem);
-		if (table->monitor_sem)
-			sem_close(table->monitor_sem);
+		if (table->forks)
+			sem_close(table->forks);
+		if (table->finish)
+			sem_close(table->finish);
+		if (table->waiter)
+			sem_close(table->waiter);
 		free(table);
-	}
-}
-
-static void	kill_processes(t_table *table)
-{
-	int	i;
-
-	i = 0;
-	while (i < table->philo_count)
-	{
-		sem_wait(table->stop_sem);
-		i++;
-	}
-	i = 0;
-	while (i < table->philo_count)
-	{
-		kill(table->philos[i].pid, SIGKILL);
-		i++;
-	}
-}
-
-static void	wait_child_processes(t_table *table)
-{
-	int	i;
-	int	status;
-
-	i = 0;
-	while (i < table->philo_count)
-	{
-		waitpid(table->philos[i].pid, &status, 0);
-		i++;
 	}
 }
 
@@ -64,7 +33,7 @@ int	main(int argc, char **argv)
 
 	if (!check_args(argc, argv))
 		return (1);
-	table = init(argv);
+	table = init_table(argv);
 	if (!table)
 		return (1);
 	i = 0;

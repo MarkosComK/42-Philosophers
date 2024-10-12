@@ -14,41 +14,41 @@
 
 static bool	is_alive(t_philos *philos, int mode)
 {
-	sem_wait(philos->table->monitor_sem);
+	sem_wait(philos->table->waiter);
 	if (!philos->is_alive)
 	{
-		sem_post(philos->table->monitor_sem);
-		sem_post(philos->table->forks_sem);
+		sem_post(philos->table->waiter);
+		sem_post(philos->table->forks);
 		if (mode == 2)
-			sem_post(philos->table->forks_sem);
+			sem_post(philos->table->forks);
 		return (false);
 	}
-	sem_post(philos->table->monitor_sem);
+	sem_post(philos->table->waiter);
 	return (true);
 }
 
 void	eating(t_philos *philos)
 {
-	sem_wait(philos->table->forks_sem);
+	sem_wait(philos->table->forks);
 	if (!is_alive(philos, 1))
 		return ;
 	print_message(philos, 'f');
-	sem_wait(philos->table->forks_sem);
+	sem_wait(philos->table->forks);
 	if (!is_alive(philos, 2))
 		return ;
 	print_message(philos, 'f');
 	print_message(philos, 'e');
-	sem_wait(philos->table->monitor_sem);
+	sem_wait(philos->table->waiter);
 	philos->last_meal_time = get_time();
-	sem_post(philos->table->monitor_sem);
+	sem_post(philos->table->waiter);
 	ft_wait(philos, philos->eat_time);
 	if (!is_alive(philos, 2))
 		return ;
-	sem_wait(philos->table->monitor_sem);
+	sem_wait(philos->table->waiter);
 	philos->meals_eaten += 1;
-	sem_post(philos->table->monitor_sem);
-	sem_post(philos->table->forks_sem);
-	sem_post(philos->table->forks_sem);
+	sem_post(philos->table->waiter);
+	sem_post(philos->table->forks);
+	sem_post(philos->table->forks);
 }
 
 void	sleeping(t_philos *philos)

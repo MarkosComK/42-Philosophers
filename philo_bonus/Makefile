@@ -13,6 +13,7 @@
 NAME = philo_bonus
 
 SRCS = main_bonus.c \
+		dinner.c \
 		check_args_bonus.c \
 		time_utils_bonus.c \
 		init_bonus.c \
