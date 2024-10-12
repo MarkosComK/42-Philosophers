@@ -62,6 +62,12 @@ void	print_message(t_philos *philos, int c)
 	sem_post(philos->table->waiter);
 }
 
+void	thread_death(t_philos *philo, char	*msg)
+{
+	printf(WHITE"%4zi "DEFAULT, get_time() - philo->table->start_time);
+	printf(RED"%i %9s %14s\n"DEFAULT, philo->id, msg, "☠️");
+}
+
 void	thread_printf(t_philos *philo, char	*msg)
 {
 	sem_wait(philo->table->waiter);
