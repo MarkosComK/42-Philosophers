@@ -83,7 +83,9 @@ $(NAME): $(OBJECTS) $(HEADER)
 		@sleep 0.1
 		@echo
 		@sleep 0.1
-		@echo "                                      ℹ️ $(YELLOW) Dinner is ready! 🍽️.$(RESET)"
+		@echo "                              ℹ️ $(YELLOW) You cannot add days to your life, 🍽️     "
+		@sleep 0.1
+		@echo "                                 but you can add life to your days!$(RESET)"
 		@sleep 0.1
 		@echo
 		@sleep 0.1
