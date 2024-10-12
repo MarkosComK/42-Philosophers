@@ -45,10 +45,10 @@ void	init_philos(t_philos *philos, t_table *table, int i, char **argv)
 	philos->eat_time = ft_atoi(argv[3]);
 	philos->last_meal_time = table->start_time;
 	philos->sleep_time = ft_atoi(argv[4]);
-	philos->meals_to_eat = -1;
+	philos->to_eat = -1;
 	if (argv[5])
-		philos->meals_to_eat = ft_atoi(argv[5]);
-	philos->meals_eaten = 0;
+		philos->to_eat = ft_atoi(argv[5]);
+	philos->eaten = 0;
 	philos->table = table;
 }
 

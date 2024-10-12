@@ -53,8 +53,8 @@ typedef struct s_philos
 	size_t		eat_time;
 	size_t		last_meal_time;
 	size_t		sleep_time;
-	int			meals_to_eat;
-	int			meals_eaten;
+	int			to_eat;
+	int			eaten;
 	t_table		*table;
 }	t_philos;
 

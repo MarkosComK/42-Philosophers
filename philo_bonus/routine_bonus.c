@@ -45,7 +45,7 @@ void	eating(t_philos *philos)
 	if (!is_alive(philos, 2))
 		return ;
 	sem_wait(philos->table->waiter);
-	philos->meals_eaten += 1;
+	philos->eaten += 1;
 	sem_post(philos->table->waiter);
 	sem_post(philos->table->forks);
 	sem_post(philos->table->forks);

@@ -62,7 +62,7 @@ void	philo_process(t_philos *philos)
 	while (1)
 	{
 		eating(philos);
-		if (philos->meals_eaten == philos->meals_to_eat)
+		if (philos->eaten == philos->to_eat)
 			sem_post(philos->table->finish);
 		sleeping(philos);
 		thinking(philos);
