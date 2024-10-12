@@ -79,16 +79,18 @@ void	start_dinner(t_table *table);
 size_t	elapsed_time(size_t start_time);
 void	kill_processes(t_table *table);
 void	wait_child_processes(t_table *table);
+//time_utils.c
 size_t	get_current_time(void);
+void	ft_wait(t_philos *philos, size_t interval);
+//routine.c
 void	philo_process(t_philos *philos);
 void	eating(t_philos *philos);
 void	sleeping(t_philos *philos);
 void	thinking(t_philos *philos);
-void	print_message(t_philos *philos, int c);
-void	ft_wait(t_philos *philos, size_t interval);
 void	free_table(t_table *table);
 void	unlink_sem(void);
 //utils.c
+void	print_message(t_philos *philos, int c);
 void	thread_death(t_philos *philo, char	*msg);
 void	thread_printf(t_philos *philo, char	*msg);
 

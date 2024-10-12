@@ -42,26 +42,6 @@ void	ft_wait(t_philos *philos, size_t interval)
 	}
 }
 
-void	print_message(t_philos *philos, int c)
-{
-	size_t	elapsed;
-
-	sem_wait(philos->table->waiter);
-	if (philos->is_alive)
-	{
-		elapsed = elapsed_time(philos->table->start_time);
-		if (c == 'f')
-			printf(GRAY MESSAGE_FORK DEFAULT, elapsed, philos->id);
-		if (c == 'e')
-			printf(MAGENTA MESSAGE_EAT DEFAULT, elapsed, philos->id);
-		if (c == 's')
-			printf(BLUE MESSAGE_SLEEP DEFAULT, elapsed, philos->id);
-		if (c == 't')
-			printf(YELLOW MESSAGE_THINK DEFAULT, elapsed, philos->id);
-	}
-	sem_post(philos->table->waiter);
-}
-
 void	thread_death(t_philos *philo, char	*msg)
 {
 	printf(WHITE"%4zi "DEFAULT, get_current_time() - philo->table->start_time);

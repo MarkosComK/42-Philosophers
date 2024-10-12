@@ -18,8 +18,8 @@ SRCS = main_bonus.c \
 		time_utils_bonus.c \
 		init_bonus.c \
 		philo_process_bonus.c \
-		actions_bonus.c \
-		actions_utils_bonus.c
+		routine_bonus.c \
+		routine_utils_bonus.c
 
 OBJS = $(SRCS:.c=.o)
 
