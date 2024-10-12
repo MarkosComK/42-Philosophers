@@ -79,11 +79,11 @@ int	init_sem(t_table *table);
 void	unlink_sem(void);
 //dinner.c
 void	start_dinner(t_table *table);
-size_t	elapsed_time(size_t start_time);
 void	kill_processes(t_table *table);
 void	wait_child_processes(t_table *table);
 //time_utils.c
 size_t	get_current_time(void);
+size_t	elapsed_time(size_t start_time);
 void	ft_wait(t_philos *philos, size_t interval);
 //routine.c
 void	philo_process(t_philos *philos);
