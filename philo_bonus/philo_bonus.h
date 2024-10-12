@@ -74,6 +74,9 @@ int		ft_atoi(char *ptr);
 
 //init.c
 t_table	*init_table(char **argv);
+void	init_philos(t_philos *philos, t_table *table, int i, char **argv);
+int	init_sem(t_table *table);
+void	unlink_sem(void);
 //dinner.c
 void	start_dinner(t_table *table);
 size_t	elapsed_time(size_t start_time);
