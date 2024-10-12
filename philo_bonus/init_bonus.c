@@ -55,8 +55,8 @@ void	init_philos(t_philos *philos, t_table *table, int i, char **argv)
 int	init_sem(t_table *table)
 {
 	unlink_sem();
-	table->forks= sem_open("forks", O_CREAT, 0644, table->philo_count);
-	if (table->forks== SEM_FAILED)
+	table->forks = sem_open("forks", O_CREAT, 0644, table->philo_count);
+	if (table->forks == SEM_FAILED)
 		return (0);
 	table->finish = sem_open("finish", O_CREAT, 0644, 0);
 	if (table->finish == SEM_FAILED)

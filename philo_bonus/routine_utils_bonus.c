@@ -37,7 +37,8 @@ void	thread_printf(t_philos *philo, char	*msg)
 	sem_wait(philo->table->waiter);
 	if (philo->is_alive)
 	{
-		printf(WHITE"%4zi "DEFAULT, get_current_time() - philo->table->start_time);
+		printf(WHITE"%4zi "DEFAULT, get_current_time()
+			- philo->table->start_time);
 		if (ft_strcmp(msg, "has taken a fork") == 0)
 			printf(BOLD"%i "GREEN"%s %8s\n"DEFAULT, philo->id, msg, "🍽️");
 		else if (ft_strcmp(msg, "is eating") == 0)

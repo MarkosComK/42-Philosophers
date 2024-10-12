@@ -29,7 +29,6 @@ void	cleanup_process(t_philos *philos)
 void	*monitoring(void *arg)
 {
 	size_t		elapsed_meal_time;
-	//size_t		elapsed;
 	t_philos	*philos;
 
 	philos = (t_philos *)arg;
@@ -41,8 +40,6 @@ void	*monitoring(void *arg)
 		{
 			philos->is_alive = false;
 			sem_post(philos->table->waiter);
-			//elapsed = elapsed_time(philos->table->start_time);
-			//printf(RED MESSAGE_DEATH DEFAULT, elapsed, philos->id);
 			thread_death(philos, "is dead");
 			cleanup_process(philos);
 			break ;

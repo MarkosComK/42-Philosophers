@@ -6,7 +6,7 @@
 /*   By: marsoare <marsoare@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 15:52:20 by marsoare          #+#    #+#             */
-/*   Updated: 2024/10/12 16:17:46 by marsoare         ###   ########.fr       */
+/*   Updated: 2024/10/12 15:52:21 by marsoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include <semaphore.h>
 # include <sys/wait.h>
 # include <signal.h>
-# include "colors.h"
+# include "colors_bonus.h"
 
 # define MAX_PHILOS 200
 
