@@ -27,16 +27,6 @@
 # include <signal.h>
 # include "colors.h"
 
-# define ERR_ARG_NUM "Error: Incorrect number of arguments\n"
-# define ERR_ARG_INT "Error: Arguments should only contain digits\n"
-# define ERR_ARG_LIM "Error: Argument values must be between 1 and INT_MAX\n"
-
-# define MESSAGE_FORK "%zu %d has taken a fork\n"
-# define MESSAGE_EAT "%zu %d is eating\n"
-# define MESSAGE_SLEEP "%zu %d is sleeping\n"
-# define MESSAGE_THINK "%zu %d is thinking\n"
-# define MESSAGE_DEATH "%zu %d died\n"
-
 # define MAX_PHILOS 200
 
 # define ALL_CHILD -1
