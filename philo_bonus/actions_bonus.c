@@ -32,12 +32,12 @@ void	eating(t_philos *philos)
 	sem_wait(philos->table->forks);
 	if (!is_alive(philos, 1))
 		return ;
-	print_message(philos, 'f');
+	thread_printf(philos, "has taken a fork");
 	sem_wait(philos->table->forks);
 	if (!is_alive(philos, 2))
 		return ;
-	print_message(philos, 'f');
-	print_message(philos, 'e');
+	thread_printf(philos, "has taken a fork");
+	thread_printf(philos, "is eating");
 	sem_wait(philos->table->waiter);
 	philos->last_meal_time = get_time();
 	sem_post(philos->table->waiter);
@@ -53,11 +53,11 @@ void	eating(t_philos *philos)
 
 void	sleeping(t_philos *philos)
 {
-	print_message(philos, 's');
+	thread_printf(philos, "is sleeping");
 	ft_wait(philos, philos->sleep_time);
 }
 
 void	thinking(t_philos *philos)
 {
-	print_message(philos, 't');
+	thread_printf(philos, "is thinking");
 }
