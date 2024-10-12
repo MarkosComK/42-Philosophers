@@ -28,8 +28,8 @@ void	ft_wait(t_philos *philos, size_t interval)
 {
 	size_t	start;
 
-	start = get_time();
-	while ((get_time() - start) < interval)
+	start = get_current_time();
+	while ((get_current_time() - start) < interval)
 	{
 		sem_wait(philos->table->waiter);
 		if (!philos->is_alive)
@@ -64,7 +64,7 @@ void	print_message(t_philos *philos, int c)
 
 void	thread_death(t_philos *philo, char	*msg)
 {
-	printf(WHITE"%4zi "DEFAULT, get_time() - philo->table->start_time);
+	printf(WHITE"%4zi "DEFAULT, get_current_time() - philo->table->start_time);
 	printf(RED"%i %9s %14s\n"DEFAULT, philo->id, msg, "☠️");
 }
 
@@ -73,7 +73,7 @@ void	thread_printf(t_philos *philo, char	*msg)
 	sem_wait(philo->table->waiter);
 	if (philo->is_alive)
 	{
-		printf(WHITE"%4zi "DEFAULT, get_time() - philo->table->start_time);
+		printf(WHITE"%4zi "DEFAULT, get_current_time() - philo->table->start_time);
 		if (ft_strcmp(msg, "has taken a fork") == 0)
 			printf(BOLD"%i "GREEN"%s %8s\n"DEFAULT, philo->id, msg, "🍽️");
 		else if (ft_strcmp(msg, "is eating") == 0)

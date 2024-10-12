@@ -39,7 +39,7 @@ void	eating(t_philos *philos)
 	thread_printf(philos, "has taken a fork");
 	thread_printf(philos, "is eating");
 	sem_wait(philos->table->waiter);
-	philos->last_meal_time = get_time();
+	philos->last_meal_time = get_current_time();
 	sem_post(philos->table->waiter);
 	ft_wait(philos, philos->eat_time);
 	if (!is_alive(philos, 2))

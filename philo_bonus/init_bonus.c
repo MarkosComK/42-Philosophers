@@ -59,7 +59,7 @@ t_table	*init_table(char **argv)
 	if (!table)
 		return (NULL);
 	table->philo_count = ft_atoi(argv[1]);
-	table->start_time = get_time();
+	table->start_time = get_current_time();
 	if (!init_sem(table))
 		return (free(table), NULL);
 	table->philos = (t_philos *)malloc(sizeof(t_philos) * table->philo_count);

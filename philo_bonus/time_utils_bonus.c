@@ -12,20 +12,19 @@
 
 #include "philo_bonus.h"
 
-size_t	get_time(void)
+size_t	get_current_time(void)
 {
-	size_t			milliseconds;
 	struct timeval	time;
 
-	gettimeofday(&time, NULL);
-	milliseconds = (time.tv_sec * 1000) + (time.tv_usec / 1000);
-	return (milliseconds);
+	if (gettimeofday(&time, NULL) == -1)
+		write(2, "gettimeofday() error\n", 22);
+	return (time.tv_sec * 1000 + time.tv_usec / 1000);
 }
 
 size_t	elapsed_time(size_t start_time)
 {
 	size_t	elapsed;
 
-	elapsed = get_time() - start_time;
+	elapsed = get_current_time() - start_time;
 	return (elapsed);
 }

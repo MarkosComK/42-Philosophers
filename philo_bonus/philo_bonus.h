@@ -79,7 +79,7 @@ void	start_dinner(t_table *table);
 size_t	elapsed_time(size_t start_time);
 void	kill_processes(t_table *table);
 void	wait_child_processes(t_table *table);
-size_t	get_time(void);
+size_t	get_current_time(void);
 void	philo_process(t_philos *philos);
 void	eating(t_philos *philos);
 void	sleeping(t_philos *philos);
