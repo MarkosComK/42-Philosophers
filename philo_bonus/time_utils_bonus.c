@@ -29,24 +29,6 @@ size_t	elapsed_time(size_t start_time)
 	return (elapsed);
 }
 
-void	ft_wait(t_philos *philos, size_t interval)
-{
-	size_t	start;
-
-	start = get_current_time();
-	while ((get_current_time() - start) < interval)
-	{
-		sem_wait(philos->table->waiter);
-		if (!philos->is_alive)
-		{
-			sem_post(philos->table->waiter);
-			break ;
-		}
-		sem_post(philos->table->waiter);
-		usleep(100);
-	}
-}
-
 int	ft_usleep(size_t milliseconds)
 {
 	size_t	start;

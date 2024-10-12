@@ -84,7 +84,6 @@ void	wait_child_processes(t_table *table);
 //time_utils.c
 size_t	get_current_time(void);
 size_t	elapsed_time(size_t start_time);
-//void	ft_wait(t_philos *philos, size_t interval);
 int		ft_usleep(size_t milliseconds);
 //routine.c
 void	philo_process(t_philos *philos);
