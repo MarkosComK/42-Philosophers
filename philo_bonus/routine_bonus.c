@@ -12,7 +12,7 @@
 
 #include "philo_bonus.h"
 
-static bool	is_alive(t_philos *philos, int mode)
+bool	is_alive(t_philos *philos, int mode)
 {
 	sem_wait(philos->table->waiter);
 	if (!philos->is_alive)
@@ -30,20 +30,14 @@ static bool	is_alive(t_philos *philos, int mode)
 void	eating(t_philos *philos)
 {
 	sem_wait(philos->table->forks);
-	if (!is_alive(philos, 1))
-		return ;
 	thread_printf(philos, "has taken a fork");
 	sem_wait(philos->table->forks);
-	if (!is_alive(philos, 2))
-		return ;
 	thread_printf(philos, "has taken a fork");
 	thread_printf(philos, "is eating");
 	sem_wait(philos->table->waiter);
 	philos->last_meal_time = get_current_time();
 	sem_post(philos->table->waiter);
 	ft_usleep(philos->eat_time);
-	if (!is_alive(philos, 2))
-		return ;
 	sem_wait(philos->table->waiter);
 	philos->eaten += 1;
 	sem_post(philos->table->waiter);
